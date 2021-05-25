@@ -35,11 +35,12 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
 <%
+// DB 지도 정보 불러오기
 MapDBManage mdb = new MapDBManage();
 ArrayList<String> list = mdb.MarkingMap();
 
+//주소 찍기
 for(int i=0;i<list.size();i++){%>
-
 geocoder.addressSearch('<%=list.get(i)%>', function(result, status) {
 
     // 정상적으로 검색이 완료됐으면 

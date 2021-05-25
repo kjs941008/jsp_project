@@ -41,9 +41,9 @@ public class MemberDBManage {
 			}
 		}
 	}
-	public int ckLogin(String userid,String upasswd) {
-		
-		Connection conn =  null;	// DB ¿¬°á°´Ã¼
+	public MemberInfo ckLogin(String userid,String upasswd) {
+		MemberInfo member = new MemberInfo();
+		Connection conn =  null;	// DB ï¿½ï¿½ï¿½á°´Ã¼
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -52,17 +52,22 @@ public class MemberDBManage {
 			
 			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
 			pstmt = conn.prepareStatement(""
-							+ "SELECT upasswd FROM charge.member_list " 
+							+ "SELECT * FROM charge.member_list " 
 							+ " WHERE userid=?"
 							+ "");
 			pstmt.setString(1, userid);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				if(rs.getString(1).equals(upasswd)) {
-					return 1;
+				if(rs.getString("upasswd").equals(upasswd)) {
+					member.setUserid(userid);
+					member.setUpasswd(upasswd);
+					member.setUname(rs.getString("uname"));
+					member.setSuc(1);
+					return member;
 				}
 				else {
-					return 0;
+					member.setSuc(0);
+					return member;
 				}
 			}
 		}catch (Exception e) {
@@ -77,7 +82,8 @@ public class MemberDBManage {
 				
 			}
 		}
-		return -1;
+		member.setSuc(-1);
+		return member;
 	}
 
 }
