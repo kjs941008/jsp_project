@@ -16,11 +16,18 @@
 	</section>
 	<aside>
 		<button id = "SignUp" onclick = "location.href='Member/SignUp.jsp'">회원가입</button>
-		<button id = "SignUp" onclick = "location.href='Member/Login.jsp'">로그인</button>
+		<button id = "Login" onclick = "location.href='Member/Login.jsp'">로그인</button>
+		<button id = "AllMapMarking" onclick = "location.href='Map/All_Map.jsp'">충전소 위치 찾기</button>
 	</aside>
 	<footer>
-		<p>푸터</p>
+		<form action="Map/Search_Map.jsp" method="get">
+			<div class="form-group">
+				<label for="addr">주소 검색</label> <input type="text" name="addr" id="addr"
+					class="form-control" />
+			</div>
+			<input type="submit" value="검색" class="btn btn-primary" />
+		</form>
+		</form>
 	</footer>
-	
 </body>
 </html>
