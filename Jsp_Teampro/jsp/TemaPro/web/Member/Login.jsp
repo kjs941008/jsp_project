@@ -18,6 +18,5 @@
 			</div>
 			<input type="submit" value="·Î±×ÀÎ" class="btn btn-primary"/>
 		</form>
-		</form>
 </body>
 </html>
