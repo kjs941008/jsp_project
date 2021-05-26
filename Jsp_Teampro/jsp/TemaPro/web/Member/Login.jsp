@@ -14,7 +14,7 @@
 			</div>
 			<div class="form-group">
 				<label for="pw">비밀번호</label>
-				<input type="text" name="pw" id="pw" class="form-control"/>
+				<input type="password" name="pw" id="pw" class="form-control"/>
 			</div>
 			<input type="submit" value="로그인" class="btn btn-primary"/>
 		</form>

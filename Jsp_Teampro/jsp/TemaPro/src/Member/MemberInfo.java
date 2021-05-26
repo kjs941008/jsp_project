@@ -3,7 +3,7 @@ package Member;
 public class MemberInfo {
 	
 	private String mid;
-	private String rid;
+	private int rid;
 	private String userid;
 	private String upasswd;
 	private String uname;
@@ -26,10 +26,10 @@ public class MemberInfo {
 	public void setSuc(int suc) {
 		this.suc = suc;
 	}
-	public String getRid() {
+	public int getRid() {
 		return rid;
 	}
-	public void setRid(String rid) {
+	public void setRid(int rid) {
 		this.rid = rid;
 	}
 	public String getUserid() {
