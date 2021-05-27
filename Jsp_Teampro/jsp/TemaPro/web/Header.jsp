@@ -12,29 +12,12 @@
             width: 1200px;
             height: 300px;
         }
-    </style>
-    <script type="text/javascript">        
-        function changeView(value){            
-            if(value == "0") // HOME 버튼 클릭시 첫화면으로 이동
-            {
-                location.href="index.jsp";
-            }
-            else if(value == "1") // 로그인 버튼 클릭시 로그인 화면으로 이동
-            {
-                location.href="index.jsp?contentPage=Member/Login.jsp";
-            }
-            else if(value == "2") // 회원가입 버튼 클릭시 회원가입 화면으로 이동
-            {
-                location.href="http://localhost:9001/TemaPro/index.jsp?contentPage=Member/SignUp.jsp";
-            }
-            else if(value == "3") // 로그아웃 버튼 클릭시 로그아웃 처리
-            {
-                location.href="Member/Logout.jsp";
-            }
-        }
-    </script>    
+    </style> 
 </head>
 <body>
+	<%
+		String MainPage;
+	%>
 	<div id="wrap">
 		<div class="container px-4 bg-dark py-3">
                 <div class="text-center text-white">
@@ -67,13 +50,13 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button id="login" class="btn btn-outline-dark" type="button" onclick="changeView(1);">
-                            LOGIN
+                        <button id="login" class="btn btn-outline-dark" type="button">
+                        <a href="?MainPage=Member/Login.jsp">LOGIN</a>                            
                         </button>
                     </form>
                     <form class="d-flex">
-                        <button id="signup" class="btn btn-outline-dark ms-lg-2" type="button" onclick="changeView(2)">
-                            SIGN UP
+                        <button id="signup" class="btn btn-outline-dark ms-lg-2" type="button">
+                        <a href="?MainPage=Member/SignUp.jsp">SignUp</a>
                         </button>
                     </form>
                 </div>

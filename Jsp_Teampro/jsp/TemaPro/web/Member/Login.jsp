@@ -7,7 +7,7 @@
     <title>JSP Project</title>
 </head>
 <body>
-    <form action="LoginAction.jsp" method="get">
+    <form action="Member/LoginAction.jsp" method="get">
 		<div class="form-group">
 			<label for="id">¾ÆÀÌµð</label>
 			<input type="text" name="id" id="id" class="form-control"/>

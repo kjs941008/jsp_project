@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-    String contentPage=request.getParameter("contentPage");
-    if(contentPage==null)
-        contentPage="FirstView.jsp";
-%>
+
 <!DOCTYPE html>
 <html lang="UTF-8">
     <head>
@@ -24,8 +20,7 @@
 	    		document.getElementById('signup').onclick=function(){
 	    			location.href = 'Member/SignUp.jsp';
 	    		}		
-	    	}
-	        
+	    	}	        
         </script>
         <style>
 	        #wrap {
@@ -47,28 +42,30 @@
 	        #footer {
 	            clear: left;
 	            width: 1200px;
-	            height: 60px;
+	            height: 100px;
+	            text-align:center;
+	            padding-top : 30px;
 	        }
         </style>
     </head>
     <body>
+    
+    <%
+	    String contentPage=request.getParameter("MainPage");
+	    if(contentPage==null)
+	        contentPage="FirstView.jsp";
+	%>
+    
     <div id="wrap">
     	<div id="header">
    			<jsp:include page="Header.jsp" />
         </div>    
     	<div id="main">
-            <jsp:include page="<%=contentPage%>" />
+            <jsp:include page="<%=contentPage%>"/>
     	</div>      
-    <div id="footer">
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-     </div>
+    	<div id="footer" class="container bg-dark">
+    		<p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+    	</div>
      </div>
     </body>
 </html>
