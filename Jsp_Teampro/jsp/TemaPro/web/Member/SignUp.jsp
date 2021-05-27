@@ -22,5 +22,6 @@
 			</div>
 			<input type="submit" value="회원가입" class="btn btn-primary"/>
 		</form>
+		
 </body>
 </html>
