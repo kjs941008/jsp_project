@@ -1,27 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-		<form action="SignUpAction.jsp" method="get">
-			<div class="form-group">
-				<label for="userid">¾ÆÀÌµğ</label>
-				<input type="text" name="userid" id="userid" class="form-control"/>
-			</div>
-			<div class="form-group">
-				<label for="upasswd">ºñ¹Ğ¹øÈ£</label>
-				<input type="password" name="upasswd" id="upasswd" class="form-control"/>
-			</div>
-			<div class="form-group">
-				<label for="uname">ÀÌ¸§</label>
-				<input type="text" name="uname" id="uname" class="form-control"/>
-			</div>
-			<input type="submit" value="È¸¿ø°¡ÀÔ" class="btn btn-primary"/>
-		</form>
-		
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<meta charset="utf-8" />
+<form action="SignUpAction.jsp" method="get"id="sign">
+	<div class="form-group">
+		<label for="userid">ì•„ì´ë””</label> <input type="text" name="userid"
+			id="userid" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for="upasswd">ë¹„ë°€ë²ˆí˜¸</label> <input type="password"
+			name="upasswd" id="upasswd" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label for="uname">ì´ë¦„</label> <input type="text" name="uname"
+			id="uname" class="form-control" />
+	</div>
+	<input type="submit" value="íšŒì›ê°€ì…" class="btn btn-primary" />
+</form>

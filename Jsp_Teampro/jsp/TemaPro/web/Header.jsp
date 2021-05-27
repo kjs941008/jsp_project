@@ -14,24 +14,34 @@
         }
     </style>
     <script type="text/javascript">        
-        function changeView(value){            
+/*          function changeView(value){            
             if(value == "0") // HOME 버튼 클릭시 첫화면으로 이동
             {
                 location.href="index.jsp";
             }
             else if(value == "1") // 로그인 버튼 클릭시 로그인 화면으로 이동
             {
-                location.href="index.jsp?contentPage=Member/Login.jsp";
+            	page = Member/Login.jsp
+                location.href='index.jsp?contentPage='+page
             }
             else if(value == "2") // 회원가입 버튼 클릭시 회원가입 화면으로 이동
             {
-                location.href="http://localhost:9001/TemaPro/index.jsp?contentPage=Member/SignUp.jsp";
+                location.href="http://localhost:9001/TemaPro/index.jsp?contentPage=Member/SignUp.jsp"
             }
             else if(value == "3") // 로그아웃 버튼 클릭시 로그아웃 처리
             {
                 location.href="Member/Logout.jsp";
             }
-        }
+        } */
+    	$('document').ready(function(){
+    		$('#login').on('click',function(){
+    			location.href='index.jsp?contentPage=Member/Login.jsp';
+    		})
+    		$('#signup').on('click',function(){
+    			location.href='index.jsp?contentPage=Member/SignUp.jsp';
+    		})
+    	})
+
     </script>    
 </head>
 <body>
@@ -67,12 +77,12 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button id="login" class="btn btn-outline-dark" type="button" onclick="changeView(1);">
+                        <button id="login" class="btn btn-outline-dark" type="button">
                             LOGIN
                         </button>
                     </form>
                     <form class="d-flex">
-                        <button id="signup" class="btn btn-outline-dark ms-lg-2" type="button" onclick="changeView(2)">
+                        <button id="signup" class="btn btn-outline-dark ms-lg-2" type="button">
                             SIGN UP
                         </button>
                     </form>

@@ -2,8 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%
     String contentPage=request.getParameter("contentPage");
-    if(contentPage==null)
+    if(contentPage==null){
         contentPage="FirstView.jsp";
+    }
 %>
 <!DOCTYPE html>
 <html lang="UTF-8">
@@ -16,17 +17,8 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="CSS/styles.css" rel="stylesheet" />
-        <script type="text/javascript">
-	        window.onload = function(){
-	    		document.getElementById('login').onclick=function(){
-	    			location.href = 'Member/Login.jsp';
-	    		}
-	    		document.getElementById('signup').onclick=function(){
-	    			location.href = 'Member/SignUp.jsp';
-	    		}		
-	    	}
-	        
-        </script>
+        <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
         <style>
 	        #wrap {
 	            width: 1200px;
@@ -57,8 +49,8 @@
    			<jsp:include page="Header.jsp" />
         </div>    
     	<div id="main">
-            <jsp:include page="<%=contentPage%>" />
-    	</div>      
+            <jsp:include page="<%=contentPage%>"/>
+    	</div>
     <div id="footer">
         <!-- Footer-->
         <footer class="py-5 bg-dark">
