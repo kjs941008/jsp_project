@@ -3,21 +3,41 @@ package board;
 import java.sql.Date;
 
 /**
- * DATABASE: charge
- * TABLE NAME: board
- * COLUMNS: article_idx(PK, AI, int), bid(FK, int), mid(int),
- * title(varchar(30)), content(text), reg_date(date), mod_date(date)
+ * DATABASE: charge TABLE NAME: board COLUMNS: article_idx(PK, AI, int), bid(FK,
+ * int), mid(int), title(varchar(30)), content(text), reg_date(date),
+ * mod_date(date)
  * 
  * @author jaemoonnlee
  *
  */
 public class Board {
+	/**
+	 * 게시글 키
+	 */
 	private int article_idx;
+	/**
+	 * 게시판 키(FK)
+	 */
 	private int bid;
+	/**
+	 * 회원 키(FK)
+	 */
 	private int mid;
+	/**
+	 * 게시글 제목
+	 */
 	private String title;
+	/**
+	 * 게시글 내용
+	 */
 	private String content;
+	/**
+	 * 게시글 작성일자
+	 */
 	private Date reg_date;
+	/**
+	 * 게시글 수정일자
+	 */
 	private Date mod_date;
 
 	public Board() {
