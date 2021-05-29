@@ -7,4 +7,13 @@ public interface MySQL {
 	public static final String USER_PW = "Asdf123!";
 	public static final String ADMIN_ID = "admin";
 	public static final String ADMIN_PW = "asdf1234";
+	/**
+	 * 2020-12-31 11:59:59
+	 */
+	public static final String FORM_TIME12HOURS = "yyyy-MM-dd hh:mm:ss";
+	/**
+	 * 2020-12-31 23:59:59
+	 */
+	public static final String FORM_TIME24HOURS = "yyyy-MM-dd HH:mm:ss";
+
 }

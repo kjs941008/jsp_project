@@ -4,10 +4,14 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 import DB.DBConnect;
+import DB.MySQL;
 
 /**
  * DML: SELECT || INSERT || UPDATE || DELETE row(s)
@@ -24,6 +28,8 @@ public class DML_Board {
 	private Board article = null;
 //	private Board_Info info = null;
 	private List<Object> list = null;
+	private Timestamp ts = null;
+	private SimpleDateFormat sdf = null;
 
 	/**
 	 * 게시글 작성.
@@ -46,8 +52,10 @@ public class DML_Board {
 			pstmt.setInt(2, mid);
 			pstmt.setString(3, title);
 			pstmt.setString(4, content);
-			// TODO 글 작성 시간
-			pstmt.setDate(5, null);
+			ts = new Timestamp(System.currentTimeMillis());
+			sdf = new SimpleDateFormat(MySQL.FORM_TIME24HOURS);
+			sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+			pstmt.setTimestamp(5, Timestamp.valueOf(sdf.format(ts)));
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,8 +92,10 @@ public class DML_Board {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
-			// TODO 글 수정 시간
-			pstmt.setDate(3, null);
+			ts = new Timestamp(System.currentTimeMillis());
+			sdf = new SimpleDateFormat(MySQL.FORM_TIME24HOURS);
+			sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+			pstmt.setTimestamp(3, Timestamp.valueOf(sdf.format(ts)));
 			pstmt.setInt(4, article_idx);
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -198,8 +208,8 @@ public class DML_Board {
 				article.setMid(rs.getInt("mid"));
 				article.setTitle(rs.getString("title"));
 				article.setContent(rs.getString("content"));
-				article.setReg_date(rs.getDate("reg_date"));
-				article.setMod_date(rs.getDate("mod_date"));
+				article.setReg_date(rs.getTimestamp("reg_date"));
+				article.setMod_date(rs.getTimestamp("mod_date"));
 				list.add(article);
 			}
 		} catch (Exception e) {
@@ -218,6 +228,5 @@ public class DML_Board {
 		}
 		return (Board[]) list.toArray();
 	}
-	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색
-	// int mid, String userid, String uname
+	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색. Member관리에서 만들까?
 }

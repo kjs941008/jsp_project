@@ -1,6 +1,6 @@
 package board;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * DATABASE: charge TABLE NAME: board COLUMNS: article_idx(PK, AI, int), bid(FK,
@@ -34,11 +34,11 @@ public class Board {
 	/**
 	 * 게시글 작성일자
 	 */
-	private Date reg_date;
+	private Timestamp reg_date;
 	/**
 	 * 게시글 수정일자
 	 */
-	private Date mod_date;
+	private Timestamp mod_date;
 
 	public Board() {
 	}
@@ -83,19 +83,19 @@ public class Board {
 		this.content = content;
 	}
 
-	public Date getReg_date() {
+	public Timestamp getReg_date() {
 		return reg_date;
 	}
 
-	public void setReg_date(Date reg_date) {
+	public void setReg_date(Timestamp reg_date) {
 		this.reg_date = reg_date;
 	}
 
-	public Date getMod_date() {
+	public Timestamp getMod_date() {
 		return mod_date;
 	}
 
-	public void setMod_date(Date mod_date) {
+	public void setMod_date(Timestamp mod_date) {
 		this.mod_date = mod_date;
 	}
 
