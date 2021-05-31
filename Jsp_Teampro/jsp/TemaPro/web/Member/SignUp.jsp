@@ -13,8 +13,9 @@ function passwardCheck(){
 	}
 }
 function id_check(){
-	window.open("CheckId.jsp", "중복 확인", "width=300, height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes" ); 
+	window.open("Member/CheckId.jsp", "중복 확인", "width=300, height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes" ); 
 }
+
 </script>
 <form action="./Member/SignUpAction.jsp" method="get"id="sign">
 	<div class="form-group">
