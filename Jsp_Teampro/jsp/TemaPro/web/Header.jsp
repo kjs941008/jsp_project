@@ -1,10 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>»ó´Ü ¿µ¿ª</title>
+<meta charset="UTF-8">
+<title>ìƒë‹¨ ì˜ì—­</title>
+<%
+Object id = session.getAttribute("id");
+Object name = session.getAttribute("name");
+Object rid = session.getAttribute("rid");
+%>
 	<link href="CSS/styles.css" rel="stylesheet" />
     <script type="text/javascript">       
     	$('document').ready(function(){
@@ -14,6 +19,9 @@
     		$('#signup').on('click',function(){
     			location.href='index.jsp?contentPage=Member/SignUp.jsp';
     		})
+    		$('#Logout').on('click',function(){
+    			location.href='index.jsp?contentPage=Member/Logout.jsp';
+    		})
     	})
     </script>    
 </head>
@@ -21,7 +29,7 @@
 	<div id="wrap">
 		<div class="container px-4 bg-dark py-3">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Àü±âÂ÷ Ä¿¹Â´ÏÆ¼</h1>
+                    <h1 class="display-4 fw-bolder">ì „ê¸°ì°¨ ì»¤ë®¤ë‹ˆí‹°</h1>
                     <p class="lead fw-normal text-white-50 mb-0">With clean & new EC</p>
                 </div>
             </div>
@@ -31,24 +39,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item ms-lg-2"><a class="nav-link active" aria-current="page" href="index.jsp" onclick="changeView(0)">Home</a></li>
-                        <li class="nav-item ms-lg-2"><a class="nav-link" href="#!">ÃæÀü¼Ò °Ë»ö</a></li>
+                        <li class="nav-item ms-lg-2"><a class="nav-link" href="#!">ì¶©ì „ì†Œ ê²€ìƒ‰</a></li>
                         <li class="nav-item dropdown ms-lg-2">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">º¸Á¶±İ</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ë³´ì¡°ê¸ˆ</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">º¸Á¶±İ Á¶È¸</a></li>
-                                <li><a class="dropdown-item" href="#!">¹®ÀÇÃ³ Á¶È¸</a></li>
+                                <li><a class="dropdown-item" href="#!">ë³´ì¡°ê¸ˆ ì¡°íšŒ</a></li>
+                                <li><a class="dropdown-item" href="#!">ë¬¸ì˜ì²˜ ì¡°íšŒ</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">º¸Á¶±İ °ü·Ã ¹®ÀÇ</a></li>
+                                <li><a class="dropdown-item" href="#!">ë³´ì¡°ê¸ˆ ê´€ë ¨ ë¬¸ì˜</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown ms-lg-2">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">°Ô½ÃÆÇ</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">ê²Œì‹œíŒ</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">ÃæÀü¼Ò °ÇÀÇ</a></li>                                
-                                <li><a class="dropdown-item" href="#!">Àü±âÂ÷ ½Ç»ç¿ë±â</a></li>
+                                <li><a class="dropdown-item" href="#!">ì¶©ì „ì†Œ ê±´ì˜</a></li>                                
+                                <li><a class="dropdown-item" href="#!">ì „ê¸°ì°¨ ì‹¤ì‚¬ìš©ê¸°</a></li>
                             </ul>
                         </li>
                     </ul>
+                    <%if(id == null){ %>
                     <form class="d-flex">
                         <button id="login" class="btn btn-outline-dark" type="button">
                             LOGIN
@@ -59,6 +68,19 @@
                             SIGN UP
                         </button>
                     </form>
+                    <%}else { %>
+                                        <form class="d-flex">
+                        <button id="Logout" class="btn btn-outline-dark" type="button">
+                            	ë¡œê·¸ì•„ì›ƒ
+                        </button>
+                    </form>
+                    <form class="d-flex">
+                        <button id="change" class="btn btn-outline-dark ms-lg-2" type="button">
+                            	íšŒì›ì •ë³´ ìˆ˜ì •
+                        </button>
+                    </form>
+                    <%} %>
+                    
                 </div>
             </div>
         	</nav>

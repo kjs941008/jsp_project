@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta charset="utf-8" />
-<form action="SignUpAction.jsp" method="get"id="sign">
+<form action="./Member/SignUpAction.jsp" method="get"id="sign">
 	<div class="form-group">
 		<label for="userid">아이디</label> <input type="text" name="userid"
 			id="userid" class="form-control" />

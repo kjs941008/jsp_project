@@ -19,16 +19,18 @@
 
 <header>
 	<h2>Login</h2>
+<!-- 	        <link href="Js/Login.js" rel="stylesheet" />
+	        <link href="CSS/Login.css" rel="stylesheet" /> -->
 </header>
-<form action="" method="POST">
+<form action="./Member/LoginAction.jsp" method="get">
 	<div class="input-box">
-	<label for="username">ID </label>
-		<input id="username" type="text" name="username" placeholder="아이디">
+	<label for="id">ID&nbsp</label>
+		<input id="id" type="text" name="id" placeholder="아이디">
 		
 	</div>
 	<div class="input-box">
-	<label for="password">PW</label>
-		<input id="password" type="password" name="password"
+	<label for="pw">PW</label>
+		<input id="pw" type="password" name="pw"
 			placeholder="비밀번호"> 
 	</div>
 	<div id="forgot">비밀번호 찾기</div>

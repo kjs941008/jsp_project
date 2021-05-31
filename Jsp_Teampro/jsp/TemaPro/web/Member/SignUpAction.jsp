@@ -1,27 +1,30 @@
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.io.PrintWriter"%>
 <%@page import="Member.MemberDBManage"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
         <%
         	MemberDBManage su = new MemberDBManage();
         	String sucValue = "";
-        	//ÇÑ±Û
+        	//í•œê¸€
 			SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
 			Date time = new Date();
 			String time1 = format1.format(time);
 			System.out.println(time1);
         	request.setCharacterEncoding("utf-8");
         	
-//        	String p_userid = (String)request.getParameter("userid");
-//        	String p_upasswd = (String)request.getParameter("upasswd");
- //       	String p_uname = (String)request.getParameter("uname"); 
         	
         	su.SignUp((String)request.getParameter("userid"),
         			(String)request.getParameter("upasswd"),
         			(String)request.getParameter("uname"),
         			time1);
-        	sucValue = "<a class='btn btn-primary' href='../index.jsp'>·Î±×ÀÎÆäÀÌÁöÀÌµ¿</a>";
+        	
+        	PrintWriter script = response.getWriter();
+    		script.println("<script>");
+    		script.println("location.href = '../index.jsp'");
+    		script.println("</script>");
+        	
         %>
 <!DOCTYPE html>
 <html>
@@ -30,6 +33,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-			<% out.print(sucValue); %>
+
 </body>
 </html>
