@@ -6,8 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>주소로 장소 표시하기</title>
-    
+    <title>주소로 장소 표시하기</title>    
 </head>
 <body>
 <p style="margin-top:-12px">
@@ -35,7 +34,7 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 // 주소로 좌표를 검색합니다
 <%
-String addr = request.getParameter("addr");
+String addr = request.getParameter("대구");
 MapDBManage mdb = new MapDBManage();
 ArrayList<String> list = mdb.SearchMap(addr);
 
@@ -49,7 +48,7 @@ geocoder.addressSearch('<%=list.get(i)%>', function(result, status) {
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
         // 결과값으로 받은 위치를 마커로 표시합니다
-
+		var imageSize = new kakao.maps.Size(35,35);
         var marker = new kakao.maps.Marker({
             map: map,
             position: coords
