@@ -8,7 +8,7 @@
         	MemberDBManage su = new MemberDBManage();
         	String sucValue = "";
         	//한글
-			SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
+			SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
 			Date time = new Date();
 			String time1 = format1.format(time);
 			System.out.println(time1);
@@ -24,15 +24,4 @@
     		script.println("<script>");
     		script.println("location.href = '../index.jsp'");
     		script.println("</script>");
-        	
         %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>

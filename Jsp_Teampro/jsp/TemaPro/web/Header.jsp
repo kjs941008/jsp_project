@@ -58,6 +58,7 @@ Object rid = session.getAttribute("rid");
                         </li>
                     </ul>
                     <%if(id == null){ %>
+
                     <form class="d-flex">
                         <button id="login" class="btn btn-outline-dark" type="button">
                             LOGIN
@@ -69,7 +70,8 @@ Object rid = session.getAttribute("rid");
                         </button>
                     </form>
                     <%}else { %>
-                                        <form class="d-flex">
+                  	<div>안녕하세요 <%=id %>님</div>
+                    <form class="d-flex">
                         <button id="Logout" class="btn btn-outline-dark" type="button">
                             	로그아웃
                         </button>

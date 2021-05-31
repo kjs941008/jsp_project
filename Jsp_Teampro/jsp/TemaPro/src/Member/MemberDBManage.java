@@ -9,6 +9,44 @@ import Member.DBinfo.DBInfo;
 
 public class MemberDBManage {
 	
+	public int IdCheck(String userid) {
+		int result = 1;
+		Connection conn =  null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			Class.forName(DBInfo.mysql_class);
+			
+			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
+			pstmt = conn.prepareStatement(""
+							+ "SELECT count(userid) as cnt FROM charge.member_list " 
+							+ " WHERE userid= ? "
+							+ "");
+			pstmt.setString(1, userid);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				// 아이디 갯수 확인 
+				if(rs.getInt("cnt") == 0) {
+					// 1이 나오면 아이디가 있고 0이면 없음
+					result = 0;
+				}
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception ex){
+				
+			}
+		}
+		return result;
+		
+		
+	}
 	public void SignUp(String userid,String upasswd,String uname,String regdate) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -43,11 +81,10 @@ public class MemberDBManage {
 	}
 	public MemberInfo ckLogin(String userid,String upasswd) {
 		MemberInfo member = new MemberInfo();
-		Connection conn =  null;	// DB ���ᰴü
+		Connection conn =  null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			// oracle mysql mssql
 			Class.forName(DBInfo.mysql_class);
 			
 			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
@@ -58,7 +95,9 @@ public class MemberDBManage {
 			pstmt.setString(1, userid);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
+				// DB 비밀번호 비교
 				if(rs.getString("upasswd").equals(upasswd)) {
+					//비밀번호 일치하면
 					member.setUserid(userid);
 					member.setUpasswd(upasswd);
 					member.setUname(rs.getString("uname"));
@@ -66,6 +105,7 @@ public class MemberDBManage {
 					return member;
 				}
 				else {
+					//비밀번호 불일치
 					member.setSuc(0);
 					return member;
 				}
@@ -82,8 +122,9 @@ public class MemberDBManage {
 				
 			}
 		}
+		//아이디가 틀리면
 		member.setSuc(-1);
 		return member;
 	}
-
+	
 }

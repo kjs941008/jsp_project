@@ -33,6 +33,7 @@
     		script.println("<script>");
     		script.println("alert('존재하지 않는 아이디입니다.')");
     		script.println("history.back()");
+    		script.println("window.close()");
     		script.println("</script>");
     	}
     %>
