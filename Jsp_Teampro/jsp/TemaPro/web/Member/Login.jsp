@@ -18,19 +18,18 @@
 <!-- </form> -->
 
 <header>
-	<h2>Login</h2>
+	<h2>로그인</h2>
 </header>
 <form action="" method="POST">
 	<div class="input-box">
-	<label for="username">ID </label>
-		<input id="username" type="text" name="username" placeholder="아이디">
-		
+	<label for="id">ID </label>
+		<input id="id" type="text" name="username" placeholder="아이디">		
 	</div>
 	<div class="input-box">
-	<label for="password">PW</label>
-		<input id="password" type="password" name="password"
-			placeholder="비밀번호"> 
+	<label for="pw">PW</label>
+		<input id="pw" type="password" name="password"	placeholder="비밀번호"> 
 	</div>
-	<div id="forgot">비밀번호 찾기</div>
 	<input type="submit" value="로그인">
+	<input type="button" value="ID 찾기">
+	<input type="button" value="PW 찾기">	
 </form>
