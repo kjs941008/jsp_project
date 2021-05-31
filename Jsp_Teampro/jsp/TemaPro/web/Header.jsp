@@ -6,33 +6,7 @@
 <meta charset="EUC-KR">
 <title>상단 영역</title>
 	<link href="CSS/styles.css" rel="stylesheet" />
-    <style type="text/css">
-        #wrap{
-            text-align: center;
-            width: 1200px;
-            height: 300px;
-        }
-    </style>
-    <script type="text/javascript">        
-/*          function changeView(value){            
-            if(value == "0") // HOME 버튼 클릭시 첫화면으로 이동
-            {
-                location.href="index.jsp";
-            }
-            else if(value == "1") // 로그인 버튼 클릭시 로그인 화면으로 이동
-            {
-            	page = Member/Login.jsp
-                location.href='index.jsp?contentPage='+page
-            }
-            else if(value == "2") // 회원가입 버튼 클릭시 회원가입 화면으로 이동
-            {
-                location.href="http://localhost:9001/TemaPro/index.jsp?contentPage=Member/SignUp.jsp"
-            }
-            else if(value == "3") // 로그아웃 버튼 클릭시 로그아웃 처리
-            {
-                location.href="Member/Logout.jsp";
-            }
-        } */
+    <script type="text/javascript">       
     	$('document').ready(function(){
     		$('#login').on('click',function(){
     			location.href='index.jsp?contentPage=Member/Login.jsp';
@@ -41,7 +15,6 @@
     			location.href='index.jsp?contentPage=Member/SignUp.jsp';
     		})
     	})
-
     </script>    
 </head>
 <body>

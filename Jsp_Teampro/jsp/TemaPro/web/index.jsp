@@ -20,27 +20,29 @@
         <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
         <style>
-	        #wrap {
-	            width: 1200px;
-	            margin: 0 auto 0 auto;
-	        }	        
-	        #header {
-	            text-align: center;
-	            width: 1200px;
-	            height: 300px;
-	        }	        
-	        #main {
-                float: left;
-	            width: 1200px;
-	            height: 500px;
-	            text-align:center;
-	            vertical-align: middle;
-	        }
-	        #footer {
-	            clear: left;
-	            width: 1200px;
-	            height: 60px;
-	        }
+ 	        #wrap { 
+ 	            width: 1200px; 
+ 	            margin : 0 auto 0 auto;
+ 	        }	         
+ 	        #header {
+ 	        	 
+ 	            text-align: center;
+ 	            width: 1200px; 
+ 	            height: 200px; 
+ 	            
+ 	        }	         
+ 	        #main { 
+                float: left; 
+ 	            width: 1200px; 
+ 	            height: 500px; 
+ 	            text-align:center; 
+ 	            vertical-align: bottom;
+ 	        } 
+ 	        #footer {
+ 	            clear: left; 
+ 	            width: 1200px; 
+ 	            height: 60px; 
+ 	        }
         </style>
     </head>
     <body>
@@ -51,7 +53,7 @@
     	<div id="main">
             <jsp:include page="<%=contentPage%>"/>
     	</div>
-    <div id="footer">
+    	<div id="footer">
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
@@ -60,7 +62,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-     </div>
+     	</div>
      </div>
     </body>
 </html>
