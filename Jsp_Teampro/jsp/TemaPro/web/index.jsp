@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	Object id = session.getAttribute("id");
-	Object name = session.getAttribute("name");
-	Object rid = session.getAttribute("rid");
     String contentPage=request.getParameter("contentPage");
     if(contentPage==null){
         contentPage="FirstView.jsp";
     }
-   
 %>
 <!DOCTYPE html>
 <html lang="UTF-8">
