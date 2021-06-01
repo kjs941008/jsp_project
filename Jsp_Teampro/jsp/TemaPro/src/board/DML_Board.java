@@ -27,7 +27,7 @@ public class DML_Board {
 	private ResultSet rs = null;
 	private Board article = null;
 //	private Board_Info info = null;
-	private List<Object> list = null;
+	private List<Board> list = null;
 	private Timestamp ts = null;
 	private SimpleDateFormat sdf = null;
 
@@ -168,12 +168,11 @@ public class DML_Board {
 	/**
 	 * 게시글 검색 첫 번째. 제목과 내용을 검색
 	 * 
-	 * @param bool  T: 검색 조건 있음 || F: 검색 조건 없음
 	 * @param opt   검색 조건(제목, 내용, 제목+내용)
 	 * @param param 검색 내용
 	 * @return
 	 */
-	public Board[] select_article1(boolean bool, SEL_OPT opt, String param) {
+	public ArrayList<Board> select_article1(SEL_OPT opt, String param, int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT * FROM board_list");
@@ -181,25 +180,26 @@ public class DML_Board {
 		try {
 			if (conn == null)
 				conn = DBConnect.getInstance();
-			if (bool)
-				switch (opt) {
-				case title:
-					sb.append(" WHERE title LIKE ?");
-					break;
-				case content:
-					sb.append(" WHERE content LIKE ?");
-					break;
-				case title_content:
-					sb.append(" WHERE title LIKE ? OR content LIKE ?");
-					break;
-				}
+			switch (opt) {
+			case title:
+				sb.append(" WHERE title LIKE ?");
+				break;
+			case content:
+				sb.append(" WHERE content LIKE ?");
+				break;
+			case title_content:
+				sb.append(" WHERE title LIKE ? OR content LIKE ?");
+				break;
+			}
+			sb.append(" LIMIT ");
+			sb.append(maxRow);
+			sb.append(" OFFSET ");
+			sb.append(maxRow * (page - 1));
 			sql = sb.toString();
 			pstmt = conn.prepareStatement(sql);
-			if (bool) {
-				pstmt.setString(1, param);
-				if (opt == SEL_OPT.title_content)
-					pstmt.setString(2, param);
-			}
+			pstmt.setString(1, param);
+			if (opt == SEL_OPT.title_content)
+				pstmt.setString(2, param);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				article = new Board();
@@ -226,7 +226,103 @@ public class DML_Board {
 				ef.printStackTrace();
 			}
 		}
-		return (Board[]) list.toArray();
+		return (ArrayList<Board>) list;
 	}
+
+	/**
+	 * 전체 조회
+	 * 
+	 * @param page   페이지
+	 * @param maxRow 한 페이지 행 수
+	 * @return
+	 */
+	public ArrayList<Board> select_all(int page, int maxRow) {
+		list = new ArrayList<>();
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT * FROM board_list");
+		String sql = "";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			sb.append(" LIMIT ");
+			sb.append(maxRow);
+			sb.append(" OFFSET ");
+			sb.append(maxRow * (page - 1));
+			sql = sb.toString();
+//			System.out.println(">> query = " + sql);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				article = new Board();
+				article.setArticle_idx(rs.getInt("article_idx"));
+				article.setBid(rs.getInt("bid"));
+				article.setMid(rs.getInt("mid"));
+				article.setTitle(rs.getString("title"));
+				article.setContent(rs.getString("content"));
+				article.setReg_date(rs.getTimestamp("reg_date"));
+				article.setMod_date(rs.getTimestamp("mod_date"));
+				list.add(article);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		return (ArrayList<Board>) list;
+	}
+
+	/**
+	 * 페이지 = (게시글 총 수 / 한 페이지 최대 행 수)
+	 * 
+	 * @param maxRow 한 페이지 최대 행 수
+	 * @return > 0 페이지 반환 || == -1 글 없음
+	 */
+	public int select_pageCount(int maxRow) {
+		int result = -1;
+		int count = 0;
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT COUNT(*) CNT FROM board_list");
+		String sql = "";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			sql = sb.toString();
+//			System.out.println(">> query = " + sql);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				count = rs.getInt("CNT");
+			}
+			if (count == 0)
+				return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		result = count / maxRow;
+		if (count % maxRow > 0)
+			result++;
+		return result;
+	}
+
 	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색. Member관리에서 만들까?
 }

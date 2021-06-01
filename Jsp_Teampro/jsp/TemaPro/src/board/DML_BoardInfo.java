@@ -22,7 +22,7 @@ public class DML_BoardInfo {
 	private ResultSet rs = null;
 //	private Board article = null;
 	private Board_Info info = null;
-	private List<Object> list = null;
+	private List<Board_Info> list = null;
 
 	/**
 	 * 게시판 정보 입력. 게시판 아이디, 게시판 이름.
@@ -127,9 +127,9 @@ public class DML_BoardInfo {
 	/**
 	 * 전체 게시판 목록 보기
 	 * 
-	 * @return Board_Info[]
+	 * @return
 	 */
-	public Board_Info[] select_board_info() {
+	public ArrayList<Board_Info> select_board_info() {
 		list = new ArrayList<>();
 		String sql = "SELECT bid, bname FROM board_info";
 		try {
@@ -157,6 +157,6 @@ public class DML_BoardInfo {
 				ef.printStackTrace();
 			}
 		}
-		return (Board_Info[]) list.toArray();
+		return (ArrayList<Board_Info>) list;
 	}
 }
