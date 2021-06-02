@@ -204,4 +204,44 @@ public class MemberDBManage {
 		}
 		return result;
 	}
+	public MemberInfo FindID(String uname,String umail) {
+		MemberInfo member = new MemberInfo();
+		Connection conn =  null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			Class.forName(DBInfo.mysql_class);
+			
+			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
+			pstmt = conn.prepareStatement(""
+							+ "SELECT userid FROM charge.member_list " 
+							+ " WHERE uname = ? and umail = ? "
+							+ "");
+
+			pstmt.setString(1, uname);
+			pstmt.setString(2, umail);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+					//입력한 정보가 맞으면 ID리턴
+					member.setUserid(rs.getString("userid"));
+					member.setSuc(1);
+					return member;
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception ex){
+				
+			}
+		}
+		//입력한 정보가 틀리면
+		member.setSuc(0);
+		return member;
+	}
+
 }

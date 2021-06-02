@@ -3,8 +3,9 @@
 <meta charset="utf-8" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
+
 </script>
-<form class="col-5 container" action="./Member/SignUpAction.jsp" method="get"id="sign">
+<form class="col-5 container" action="Find_IdAction.jsp" method="get">
 
 	<div class="form-group">
 		<label for="uname">이름</label> <input class = "col-8" type="text" name="uname"
@@ -13,5 +14,5 @@
 	<div class="form-group">
 		<label for="umail">이메일</label> <input class = "col-8" type="text" name="umail" id="umail" class="form-control" placeholder ="이메일을 입력해 주세요" />
 	</div>
-	<input type="submit" value="회원가입" class="btn btn-primary" />
+	<input type="submit" value="아이디 찾기" class="btn btn-primary" />
 </form>
