@@ -47,9 +47,11 @@ public class MemberDBManage {
 		
 		
 	}
-	public void SignUp(String userid,String upasswd,String uname,String regdate) {
+	public boolean SignUp(String userid,String upasswd,String uname,String umail,
+			String uaddr,String regdate) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		boolean result = false;
 		
 		try {
 			Class.forName(DBInfo.mysql_class);
@@ -57,16 +59,20 @@ public class MemberDBManage {
 			pstmt = conn.prepareStatement(
 					"INSERT INTO "+ 
 					"member_list "+
-					"(userid,upasswd,uname,regdate)"+
+					"(userid,upasswd,uname,uaddr,umail,regdate)"+
 					"VALUES "+
-					"(?,?,?,?)");
+					"(?,?,?,?,?,?)");
 			
 
 			pstmt.setString(1,userid);
 			pstmt.setString(2,upasswd);
 			pstmt.setString(3,uname);
-			pstmt.setString(4,regdate);
+			pstmt.setString(4,uaddr);
+			pstmt.setString(5,umail);
+			pstmt.setString(6,regdate);
 			pstmt.executeUpdate();
+			result = true;
+			return result;
 		}catch (Exception e) {
 			e.printStackTrace();
 			
@@ -78,6 +84,7 @@ public class MemberDBManage {
 				
 			}
 		}
+		return result;
 	}
 	public MemberInfo ckLogin(String userid,String upasswd) {
 		MemberInfo member = new MemberInfo();

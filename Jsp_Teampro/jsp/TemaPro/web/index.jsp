@@ -23,7 +23,7 @@
  	        #wrap { 
  	            width: 1200px; 
  	            margin : 0 auto 0 auto;
- 	        }	         
+ 	        }        
  	        #header {
  	        	 
  	            text-align: center;

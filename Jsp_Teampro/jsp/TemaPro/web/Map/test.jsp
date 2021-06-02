@@ -18,7 +18,7 @@
 </p>
 <div id="map" style="width:500px;height:350px;"></div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f2742810f51fd185f367e60d19d4d07&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f2742810f51fd185f367e60d19d4d07&libraries=clusterer"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
@@ -33,12 +33,11 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-
 // 주소로 좌표를 검색합니다
 <%
-String addr = request.getParameter("대구");
+String addr = request.getParameter("addr");
 MapDBManage mdb = new MapDBManage();
-ArrayList<String> list = mdb.SearchMap(addr);
+ArrayList<String> list = mdb.SearchMap("대구");
 
 for(int i=0;i<list.size();i++){%>
 
@@ -49,11 +48,21 @@ geocoder.addressSearch('<%=list.get(i)%>', function(result, status) {
 
         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
+        var imageSrc = '../img/maker.jpg', // 마커이미지의 주소입니다    
+        imageSize = new kakao.maps.Size(40, 45), // 마커이미지의 크기입니다
+        imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+          
+    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
+        markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
+
+        
         // 결과값으로 받은 위치를 마커로 표시합니다
 		var imageSize = new kakao.maps.Size(35,35);
         var marker = new kakao.maps.Marker({
             map: map,
-            position: coords
+            position: coords,
+            image: markerImage
         });
 
         // 인포윈도우로 장소에 대한 설명을 표시합니다

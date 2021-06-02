@@ -11,17 +11,26 @@
 			SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
 			Date time = new Date();
 			String time1 = format1.format(time);
-			System.out.println(time1);
         	request.setCharacterEncoding("utf-8");
         	
+        	String userid = (String)request.getParameter("userid");
+        	String upasswd = (String)request.getParameter("upasswd");
+        	String uname = (String)request.getParameter("uname");
+        	String uaddr = (String)request.getParameter("uaddr");
+        	String umail = (String)request.getParameter("umail");
         	
-        	su.SignUp((String)request.getParameter("userid"),
-        			(String)request.getParameter("upasswd"),
-        			(String)request.getParameter("uname"),
-        			time1);
         	
         	PrintWriter script = response.getWriter();
+        	if(su.SignUp(userid,upasswd,uname,uaddr,umail,
+        			time1)){
     		script.println("<script>");
+    		script.println("alert('회원가입 성공! 로그인 해주세요')");
     		script.println("location.href = '../index.jsp'");
     		script.println("</script>");
+        	}else{
+        		script.println("<script>");
+        		script.println("alert('회원가입 실패! 잠시 후 다시 시도해주세요')");
+        		script.println("history.back()");
+        		script.println("</script>");
+        	}
         %>
