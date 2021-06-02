@@ -1,7 +1,6 @@
 package board;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -41,7 +40,7 @@ public class DML_Board {
 	 * @param reg_date 작성 일자
 	 * @return > 0 QUERY OK || == 0 QUERY DOESNT WORK || == -1 ERROR
 	 */
-	public int insert_article(int bid, int mid, String title, String content, Date reg_date) {
+	public int insert_article(int bid, int mid, String title, String content) {
 		int result = -1;
 		String sql = "INSERT INTO board_list (bid, mid, title, content, reg_date) VALUES (?, ?, ?, ?, ?)";
 		try {
@@ -83,7 +82,7 @@ public class DML_Board {
 	 * @param mod_date    수정 일자
 	 * @return > 0 QUERY OK || == 0 QUERY DOESNT WORK || == -1 ERROR
 	 */
-	public int update_article(int article_idx, String title, String content, Date mod_date) {
+	public int update_article(int article_idx, String title, String content) {
 		int result = -1;
 		String sql = "UPDATE charge.board_list SET title = ?, content = ?, mod_date = ? WHERE article_idx = ?";
 		try {
@@ -325,4 +324,42 @@ public class DML_Board {
 	}
 
 	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색. Member관리에서 만들까?
+
+	public Board getArticle(int article_idx) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT * FROM board_list WHERE article_idx = ?");
+		String sql = "";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			sql = sb.toString();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, article_idx);
+			rs = pstmt.executeQuery();
+			article = new Board();
+			if (rs.next()) {
+				article.setArticle_idx(rs.getInt("article_idx"));
+				article.setBid(rs.getInt("bid"));
+				article.setMid(rs.getInt("mid"));
+				article.setTitle(rs.getString("title"));
+				article.setContent(rs.getString("content"));
+				article.setReg_date(rs.getTimestamp("reg_date"));
+				article.setMod_date(rs.getTimestamp("mod_date"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		return article;
+	}
 }

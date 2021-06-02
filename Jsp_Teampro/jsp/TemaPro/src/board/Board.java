@@ -43,6 +43,13 @@ public class Board {
 	public Board() {
 	}
 
+	public Board(int bid, int mid, String title, String content) {
+		this.bid = bid;
+		this.mid = mid;
+		this.title = title;
+		this.content = content;
+	}
+
 	public int getArticle_idx() {
 		return article_idx;
 	}
