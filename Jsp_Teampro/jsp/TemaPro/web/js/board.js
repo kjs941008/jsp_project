@@ -4,5 +4,5 @@
 
 function notice_readArticle(id) {
     // 글 상세보기
-    location.href = "/notice_detail.jsp?id=" + id;
+    location.href = "../Board/notice_detail.jsp?idx=" + id;
 }

@@ -9,18 +9,19 @@
 <meta charset="UTF-8">
 <title>Notice</title>
 </head>
-<script src="./js/board.js"></script>
+<script src="../js/board.js"></script>
 <body>
 	<!-- 공지사항은 로그인 여부와 관계없이 목록과 글 내용을 볼 수 있다 -->
 	<!-- 다만 글 작성은 관리자(rid = 0)만 가능, 일반회원(rid = 1)은 불가능 -->
 	<%
-	final int BID = 100;
-	
+		final int BID = 100;
+
 	// TODO session에서 회원정보 확인. 관리자인 경우 아래 글쓰기 버튼 활성화
 	int ROW_CNT = 10;
 	DML_Board dml = new DML_Board();
 	int pagination = dml.select_pageCount(ROW_CNT);
 	ArrayList<Board> list = null;
+
 	%>
 	<!-- table title: board_name -->
 	<!-- table columns -->
@@ -50,7 +51,7 @@
 						onclick="notice_readArticle(<%=b.getArticle_idx()%>)">
 						<td><%=b.getArticle_idx()%></td>
 						<td><%=b.getTitle()%></td>
-						<td><%=b.getMid()%></td>
+						<td><%=b.getUname()%></td>
 						<td><%=b.getReg_date()%></td>
 					</tr>
 				</tbody>
@@ -85,12 +86,12 @@
 		</div>
 		<%
 			// TODO 관리자면 아래 div 활성화
-			/* 조건(rid==1) */
-			{
+		/* 조건(rid==1) */
+		{
 		%>
 		<div id="submit" class="">
 			<!-- TODO write 링크 -->
-			<a href="#"><input type="button" value="글쓰기"></a>
+			<a href="notice_write.jsp"><input type="button" value="글쓰기"></a>
 		</div>
 		<%
 			}

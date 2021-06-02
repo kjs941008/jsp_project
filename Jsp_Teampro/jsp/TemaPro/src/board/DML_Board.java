@@ -84,7 +84,7 @@ public class DML_Board {
 	 */
 	public int update_article(int article_idx, String title, String content) {
 		int result = -1;
-		String sql = "UPDATE charge.board_list SET title = ?, content = ?, mod_date = ? WHERE article_idx = ?";
+		String sql = "UPDATE board_list SET title = ?, content = ?, mod_date = ? WHERE article_idx = ?";
 		try {
 			if (conn == null)
 				conn = DBConnect.getInstance();
@@ -174,7 +174,7 @@ public class DML_Board {
 	public ArrayList<Board> select_article1(SEL_OPT opt, String param, int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM board_list");
+		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid)");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -209,6 +209,7 @@ public class DML_Board {
 				article.setContent(rs.getString("content"));
 				article.setReg_date(rs.getTimestamp("reg_date"));
 				article.setMod_date(rs.getTimestamp("mod_date"));
+				article.setUname(rs.getString("uname"));
 				list.add(article);
 			}
 		} catch (Exception e) {
@@ -238,7 +239,7 @@ public class DML_Board {
 	public ArrayList<Board> select_all(int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM board_list");
+		sb.append("SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -260,6 +261,7 @@ public class DML_Board {
 				article.setContent(rs.getString("content"));
 				article.setReg_date(rs.getTimestamp("reg_date"));
 				article.setMod_date(rs.getTimestamp("mod_date"));
+				article.setUname(rs.getString("uname"));
 				list.add(article);
 			}
 		} catch (Exception e) {
@@ -327,7 +329,7 @@ public class DML_Board {
 
 	public Board getArticle(int article_idx) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM board_list WHERE article_idx = ?");
+		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid) WHERE article_idx = ?");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -345,6 +347,7 @@ public class DML_Board {
 				article.setContent(rs.getString("content"));
 				article.setReg_date(rs.getTimestamp("reg_date"));
 				article.setMod_date(rs.getTimestamp("mod_date"));
+				article.setUname(rs.getString("uname"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
