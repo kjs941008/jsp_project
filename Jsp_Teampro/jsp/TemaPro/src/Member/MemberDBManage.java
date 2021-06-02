@@ -187,9 +187,10 @@ public class MemberDBManage {
 			pstmt.setString(1, wpw);
 			pstmt.setString(2, userid);
 			pstmt.setString(3, nowpw);
-			pstmt.executeUpdate();
-			result = true;
-			return result;
+			if(pstmt.executeUpdate() == 1) {
+				result = true;
+				return result;
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 			
