@@ -7,24 +7,16 @@ public class MemberInfo {
 	private String userid;
 	private String upasswd;
 	private String uname;
+	private String uaddr;
+	private String umail;
 	private String regdate;
 	private int suc;
-	@Override
-	public String toString() {
-		return "MemberInfo [mid=" + mid + ", rid=" + rid + ", userid=" + userid + ", upasswd=" + upasswd + ", uname="
-				+ uname + ", redate=" + regdate + "]";
-	}
+	
 	public String getMid() {
 		return mid;
 	}
 	public void setMid(String mid) {
 		this.mid = mid;
-	}
-	public int getSuc() {
-		return suc;
-	}
-	public void setSuc(int suc) {
-		this.suc = suc;
 	}
 	public int getRid() {
 		return rid;
@@ -50,10 +42,28 @@ public class MemberInfo {
 	public void setUname(String uname) {
 		this.uname = uname;
 	}
-	public String getRedate() {
+	public String getUaddr() {
+		return uaddr;
+	}
+	public void setUaddr(String addr) {
+		this.uaddr = addr;
+	}
+	public String getUmail() {
+		return umail;
+	}
+	public void setUmail(String umail) {
+		this.umail = umail;
+	}
+	public String getRegdate() {
 		return regdate;
 	}
-	public void setRedate(String redate) {
-		this.regdate = redate;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
+	}
+	public int getSuc() {
+		return suc;
+	}
+	public void setSuc(int suc) {
+		this.suc = suc;
 	}
 }

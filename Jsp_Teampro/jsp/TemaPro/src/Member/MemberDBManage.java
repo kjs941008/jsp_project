@@ -108,6 +108,7 @@ public class MemberDBManage {
 					member.setUserid(userid);
 					member.setUpasswd(upasswd);
 					member.setUname(rs.getString("uname"));
+					member.setUaddr(rs.getString("uaddr"));
 					member.setSuc(1);
 					return member;
 				}
@@ -133,5 +134,73 @@ public class MemberDBManage {
 		member.setSuc(-1);
 		return member;
 	}
-	
+	public boolean ChangeInfo(String userid,String uname,String uaddr,String umail) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		
+		try {
+			Class.forName(DBInfo.mysql_class);
+			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
+			pstmt = conn.prepareStatement(
+					"UPDATE charge.member_list "+ 
+					"SET uname = ? ,"+
+					"uaddr = ? ,"+
+					"umail = ? "+
+					"WHERE userid = ? "
+					);
+			
+
+			pstmt.setString(1,uname);
+			pstmt.setString(2,uaddr);
+			pstmt.setString(3,umail);
+			pstmt.setString(4,userid);
+			pstmt.executeUpdate();
+			result = true;
+			return result;
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception e) {
+				
+			}
+		}
+		return result;
+	}
+	public boolean ChangePw(String wpw, String userid, String nowpw ) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		boolean result = false;
+		
+		try {
+			Class.forName(DBInfo.mysql_class);
+			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
+			pstmt = conn.prepareStatement(
+					"UPDATE charge.member_list SET upasswd = ? WHERE userid = ? and upasswd = ? "
+					);
+			
+
+			pstmt.setString(1, wpw);
+			pstmt.setString(2, userid);
+			pstmt.setString(3, nowpw);
+			pstmt.executeUpdate();
+			result = true;
+			return result;
+		}catch (Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception e) {
+				
+			}
+		}
+		return result;
+	}
 }

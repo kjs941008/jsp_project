@@ -22,6 +22,9 @@ Object rid = session.getAttribute("rid");
     		$('#Logout').on('click',function(){
     			location.href='index.jsp?contentPage=Member/Logout.jsp';
     		})
+    		$('#change').on('click',function(){
+    			location.href='index.jsp?contentPage=Member/Change_Info.jsp';
+    		})
     	})
     </script>    
 </head>

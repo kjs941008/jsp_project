@@ -19,18 +19,22 @@
         	String uaddr = (String)request.getParameter("uaddr");
         	String umail = (String)request.getParameter("umail");
         	
-        	
         	PrintWriter script = response.getWriter();
-        	if(su.SignUp(userid,upasswd,uname,uaddr,umail,
-        			time1)){
-    		script.println("<script>");
-    		script.println("alert('회원가입 성공! 로그인 해주세요')");
-    		script.println("location.href = '../index.jsp'");
-    		script.println("</script>");
+        	if(su.SignUp(userid,upasswd,uname,uaddr,umail,time1)){
+        		
+    			script.println("<script>");
+    			script.println("alert('회원가입 성공! 로그인 해주세요')");
+    			script.println("location.href = '../index.jsp'");
+    			script.println("</script>");
+    			script.close();
+    			
         	}else{
+        		
         		script.println("<script>");
         		script.println("alert('회원가입 실패! 잠시 후 다시 시도해주세요')");
         		script.println("history.back()");
         		script.println("</script>");
+        		script.close();
+        		
         	}
         %>

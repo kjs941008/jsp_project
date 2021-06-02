@@ -14,6 +14,7 @@
     		session.setAttribute("id", id);
     		session.setAttribute("name", mif.getUname());
     		session.setAttribute("rid", mif.getRid());
+    		session.setAttribute("addr", mif.getUaddr());
     		PrintWriter script = response.getWriter();
     		script.println("<script>");
     		script.println("location.href = '../index.jsp'");
