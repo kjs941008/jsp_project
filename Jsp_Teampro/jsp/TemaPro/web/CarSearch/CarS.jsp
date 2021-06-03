@@ -1,12 +1,10 @@
 <%@page import="CarSearch.*"%>
 <%@page import="java.util.ArrayList"%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<%
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<%
 	String selected = (String)request.getParameter("f");
-	%>
+%>
 <!DOCTYPE html>
 <html>
 <head>

@@ -33,13 +33,12 @@ Object rid = session.getAttribute("rid");
         String contentPage;
     %>
 	<div id="wrap">
-		<div class="container px-4 bg-dark py-3" id="d_title">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">전기차 커뮤니티</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">With clean & new EC</p>
-                </div>
-            </div>
-            <!-- Navigation-->
+		<div class="container px-4 bg-dark py-3" style="margin:0px; max-width: 1903px;">
+	        <div class="text-center text-white">
+	            <h1 class="display-4 fw-bolder">전기차 커뮤니티</h1>
+	            <p class="lead fw-normal text-white-50 mb-0">With clean & new EC</p>
+	        </div>
+        </div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

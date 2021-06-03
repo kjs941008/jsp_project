@@ -49,9 +49,6 @@
   }
 }
 
-#d_title{
-	margin: 0;
-}
 
 body {
   margin: 0;
@@ -3042,13 +3039,13 @@ textarea.form-control-lg {
 
 .btn-info {
   color: #000;
-  background-color: #0dcaf0;
-  border-color: #0dcaf0;
+  background-color: #63b0bf;
+  border-color: #63b0bf;
 }
 .btn-info:hover {
-  color: #000;
-  background-color: #31d2f2;
-  border-color: #25cff2;
+  color: #d1e6eb;
+  background-color: #214a52;
+  border-color: #214a52;
 }
 .btn-check:focus + .btn-info, .btn-info:focus {
   color: #000;

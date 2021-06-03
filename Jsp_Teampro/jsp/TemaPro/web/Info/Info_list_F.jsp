@@ -11,15 +11,13 @@
 	AskDBManager adb = new AskDBManager();
 	ArrayList<AskInfo> list = adb.select("건설기계");
 %>
-
 </head>
 <body>
 <%
         String listPage;
-%>
-	
-	<div class="container my-5 text-center">
-	<h4>2021년도 전기자동차(건설기계) 지자체 연락처</h4>    
+%>	
+	<div class="container my-3 text-center">
+	<h4 style="color:#5872A5;"><2021년도 전기자동차(건설기계) 지자체 연락처></h4>    
 		<table class="table table-bordered my-3">
    			<thead>
      			<tr>

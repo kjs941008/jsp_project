@@ -2,10 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<link href="CSS/styles.css" rel="stylesheet" />
+<head>
+	<meta charset="UTF-8">
+	<title>차종별, 시도별 보조금 금액 조회</title>
 <style>
 	.btn-info{
 		width:150pt;
@@ -13,7 +14,7 @@
 		font-size : 28px;
 	}
 	#area{
-		padding : 200px;
+		padding-top : 200px;
 	}
 </style>
 </head>

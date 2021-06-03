@@ -16,8 +16,8 @@
 <%
         String listPage;
 %>	
-	<div class="container my-5 text-center">
-	<h4>2021 수소연료전지차 지자체 연락처</h4>    
+	<div class="container my-3 text-center">
+	<h4 style="color:#5872A5;"><2021 수소연료전지차 지자체 연락처></h4>    
 		<table class="table table-bordered my-3">
    			<thead>
      			<tr>

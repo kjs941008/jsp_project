@@ -10,19 +10,21 @@
 %>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link href="CSS/styles.css" rel="stylesheet" />
 <head>
-<meta charset="UTF-8">
-<title>지자체 문의처</title>
+	<meta charset="UTF-8">
+	<title>지자체 문의처</title>
 </head>
 <body>
-    <div id="cartype">
+    <div id="cartype" style="margin-top:20px;">
     	<h3>저공해차 구매보조금 관련 문의처</h3>
-    	<input type="button" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_A.jsp'" value="전기승용"/>
-    	<input type="button" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_B.jsp'" value="전기화물"/>
-    	<input type="button" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_C.jsp'" value="전기승합"/>
-    	<input type="button" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_D.jsp'" value="전기이륜차"/>
-    	<input type="button" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_E.jsp'" value="수소연료전지차"/>
-    	<input type="button" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_F.jsp'" value="건설기계"/>
+    	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_A.jsp'" value="전기승용"/>
+    	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_B.jsp'" value="전기화물"/>
+    	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_C.jsp'" value="전기승합"/>
+    	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_D.jsp'" value="전기이륜차"/>
+    	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_E.jsp'" value="수소연료전지차"/>
+    	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_F.jsp'" value="건설기계"/>
     </div>
     <div id="main">
     	<jsp:include page="<%=listPage%>"/>
