@@ -108,3 +108,4 @@ target/
 .metadata/.plugins/org.eclipse.tm.terminal.view.ui/.executables/data.properties
 .metadata/.plugins/org.springframework.ide.eclipse.aop.core/.state
 .metadata/version.ini
+*.class
