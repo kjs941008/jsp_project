@@ -12,6 +12,19 @@ import java.sql.Timestamp;
  */
 public class Board {
 	/**
+	 * 회원 이름(need to JOIN member_list)
+	 */
+	private String uname;
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	/**
 	 * 게시글 키
 	 */
 	private int article_idx;

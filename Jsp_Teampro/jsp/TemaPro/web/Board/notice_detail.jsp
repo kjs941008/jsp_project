@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%
-		int article_idx = (int) request.getAttribute("id");
+		int article_idx = Integer.parseInt(request.getParameter("idx"));
 		DML_Board dml = new DML_Board();
 		Board article = null;
 		article = dml.getArticle(article_idx);
