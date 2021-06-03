@@ -20,30 +20,32 @@
         <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
         <style>
+        	html{height:100%;}
+        	body{height:100%; margin:0;}
  	        #wrap { 
+ 	        	min-height:100%;
+ 	        	position:relative;
+ 	        	padding-bottom:60px;
  	            width: 1200px; 
  	            margin : 0 auto 0 auto;
  	        }        
- 	        #header {
- 	        	 
+ 	        #header { 	        	 
  	            text-align: center;
  	            width: 1200px; 
- 	            height: 200px; 
- 	            
+ 	            height: 200px;  	            
  	        }	         
- 	        #main { 
-                float: left; 
- 	            width: 1200px; 
- 	            height: 500px; 
- 	            text-align:center; 
- 	            vertical-align: bottom;
- 	            position : relative;
+ 	        #main {
+ 	            width: 1200px;
+ 	            text-align:center;  
+  	            vertical-align: bottom;
+  	            position :relative;
  	        } 
  	        #footer {
- 	            clear: left; 
+ 	        	bottom:0; left:0; right:0;
+/*  	            clear: left;  */
  	            width: 1200px; 
  	            height: 60px; 
- 	            position : inherit;
+ 	            position : absolute;
  	        }
         </style>
     </head>

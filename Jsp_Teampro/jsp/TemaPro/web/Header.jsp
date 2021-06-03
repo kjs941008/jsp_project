@@ -10,23 +10,23 @@ Object id = session.getAttribute("id");
 Object name = session.getAttribute("name");
 Object rid = session.getAttribute("rid");
 %>
-	<link href="CSS/styles.css" rel="stylesheet" />
-    <script type="text/javascript">       
-    	$('document').ready(function(){
-    		$('#login').on('click',function(){
-    			location.href='index.jsp?contentPage=Member/Login.jsp';
-    		})
-    		$('#signup').on('click',function(){
-    			location.href='index.jsp?contentPage=Member/SignUp.jsp';
-    		})
-    		$('#Logout').on('click',function(){
-    			location.href='index.jsp?contentPage=Member/Logout.jsp';
-    		})
-    		$('#change').on('click',function(){
-    			location.href='index.jsp?contentPage=Member/Change_Info.jsp';
-    		})
-    	})
-    </script>    
+<link href="CSS/styles.css" rel="stylesheet" />
+   <script type="text/javascript">       
+   	$('document').ready(function(){
+   		$('#login').on('click',function(){
+   			location.href='index.jsp?contentPage=Member/Login.jsp';
+   		})
+   		$('#signup').on('click',function(){
+   			location.href='index.jsp?contentPage=Member/SignUp.jsp';
+   		})
+   		$('#Logout').on('click',function(){
+   			location.href='index.jsp?contentPage=Member/Logout.jsp';
+   		})
+   		$('#change').on('click',function(){
+   			location.href='index.jsp?contentPage=Member/Change_Info.jsp';
+   		})
+   	})
+   </script>    
 </head>
 <body>
 	<%
@@ -49,7 +49,7 @@ Object rid = session.getAttribute("rid");
                         <li class="nav-item dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">보조금</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">보조금 조회</a></li>
+                                <li><a class="dropdown-item" href="?contentPage=index.jsp">보조금 조회</a></li>
                                 <li><a class="dropdown-item" href="?contentPage=SubMain.jsp">문의처 조회</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">보조금 관련 문의</a></li>

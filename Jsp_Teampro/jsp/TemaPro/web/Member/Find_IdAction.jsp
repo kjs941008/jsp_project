@@ -19,7 +19,7 @@ if(mif.getSuc() == 1){
 	Naver.FindIDMail(umail,userid);
 	script.println("<script>");
 	script.println("alert('메일확인')");
-	script.println("location.href = '../index.jsp'");
+	script.println("window.close()");
 	script.println("</script>");
 }else{
 	script.println("<script>");
