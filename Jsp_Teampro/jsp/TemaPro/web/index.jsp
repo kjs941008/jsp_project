@@ -37,11 +37,13 @@
  	            height: 500px; 
  	            text-align:center; 
  	            vertical-align: bottom;
+ 	            position : relative;
  	        } 
  	        #footer {
  	            clear: left; 
  	            width: 1200px; 
  	            height: 60px; 
+ 	            position : inherit;
  	        }
         </style>
     </head>

@@ -7,6 +7,7 @@
     	String id = request.getParameter("id");
     	String pw = request.getParameter("pw");
     	
+		PrintWriter script = response.getWriter();
     	MemberDBManage mdb = new MemberDBManage();
     	MemberInfo mif = mdb.ckLogin(id,pw);
     	if(mif.getSuc()==1){
@@ -15,14 +16,12 @@
     		session.setAttribute("name", mif.getUname());
     		session.setAttribute("rid", mif.getRid());
     		session.setAttribute("addr", mif.getUaddr());
-    		PrintWriter script = response.getWriter();
     		script.println("<script>");
     		script.println("location.href = '../index.jsp'");
     		script.println("</script>");
     	}
     	else if(mif.getSuc()==0){
     		out.print("비밀번호 틀림");
-    		PrintWriter script = response.getWriter();
     		script.println("<script>");
     		script.println("alert('비밀번호가 틀립니다.')");
     		script.println("history.back()");
@@ -30,7 +29,6 @@
     	}
     	else if(mif.getSuc()==-1){
     		out.print("없는 아이디");
-    		PrintWriter script = response.getWriter();
     		script.println("<script>");
     		script.println("alert('존재하지 않는 아이디입니다.')");
     		script.println("history.back()");

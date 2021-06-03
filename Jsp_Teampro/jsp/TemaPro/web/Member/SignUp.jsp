@@ -67,11 +67,11 @@ function idcheck(){
 	
 	<div class="form-group" >
 	<label for="upasswd">비밀번호</label> <input class = "col-8" type="password"
-			name="upasswd" id="upasswd" class="form-control" placeholder ="비밀번호를 입력해 주세요" />
+			name="upasswd" id="upasswd" onkeyup = "passwardCheck();" class="form-control" placeholder ="비밀번호를 입력해 주세요" />
 	</div>
 		<div class="form-group">
-		<label for="upasswd_check">비밀번호 확인</label> 
-		<input class = "col-8" type="password" name="upasswd_check" onkeyup = "passwardCheck();" id="upasswd_check" class="form-control" placeholder ="비밀번호를 입력해 주세요" />
+		<label for="upasswd_check">비밀번호 확인</label> <input class = "col-8" type="password" 
+		name="upasswd_check" onkeyup = "passwardCheck();" id="upasswd_check" class="form-control" placeholder ="비밀번호를 입력해 주세요" />
 	</div>
 	<font style = "color : red"id="pwMessage" size="2"></font>
 	
@@ -89,5 +89,5 @@ function idcheck(){
 			id="umail" class="form-control" placeholder ="이메일을 입력해 주세요" />
 	</div>
 	
-	<input type="submit" value="회원가입" class="btn btn-primary" />
+	<input id ="signup" type="submit" value="회원가입" class="btn btn-primary" />
 </form>

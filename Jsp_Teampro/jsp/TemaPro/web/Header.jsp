@@ -29,6 +29,9 @@ Object rid = session.getAttribute("rid");
     </script>    
 </head>
 <body>
+	<%
+        String contentPage;
+    %>
 	<div id="wrap">
 		<div class="container px-4 bg-dark py-3">
                 <div class="text-center text-white">
@@ -41,13 +44,13 @@ Object rid = session.getAttribute("rid");
             <div class="container px-4 px-lg-5">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item ms-lg-2"><a class="nav-link active" aria-current="page" href="index.jsp" onclick="changeView(0)">Home</a></li>
+                        <li class="nav-item ms-lg-2"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
                         <li class="nav-item ms-lg-2"><a class="nav-link" href="#!">충전소 검색</a></li>
                         <li class="nav-item dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">보조금</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">보조금 조회</a></li>
-                                <li><a class="dropdown-item" href="#!">문의처 조회</a></li>
+                                <li><a class="dropdown-item" href="?contentPage=SubMain.jsp">문의처 조회</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">보조금 관련 문의</a></li>
                             </ul>
@@ -73,9 +76,9 @@ Object rid = session.getAttribute("rid");
                         </button>
                     </form>
                     <%}else { %>
-                  	<div>안녕하세요 <%=id %>님</div>
+                  	<div>안녕하세요 <%=id %>님    </div>
                     <form class="d-flex">
-                        <button id="Logout" class="btn btn-outline-dark" type="button">
+                        <button id="Logout" class="btn btn-outline-dark ms-lg-4" type="button">
                             	로그아웃
                         </button>
                     </form>

@@ -23,7 +23,7 @@ function passwardCheck(){
 <title>비밀번호 변경</title>
 </head>
 <body>
-	<form action="./Member/Change_PwAction.jsp" method="get">
+	<form action="Change_PwAction.jsp" method="get">
 		<div class="form-group" >
 			<label for="nowpw">현재 비밀번호</label>
 			<input class = "col-8" type="password" name="nowpw" id="nowpw" class="form-control" placeholder ="비밀번호를 입력해 주세요" />
