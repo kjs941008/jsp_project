@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="board.Board"%>
 <%@ page import="board.DML_Board"%>
+<%@ page import="user.Member_List"%>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -18,11 +19,11 @@
 		final String board_name = "notice_";
 		final int BID = 100;
 		int pg;
-		if(request.getParameter("pg")!=null)
+		if (request.getParameter("pg") != null)
 			pg = Integer.parseInt(request.getParameter("pg"));
 		else
 			pg = 1;
-		// TODO session에서 회원정보 확인. 관리자인 경우 아래 글쓰기 버튼 활성화
+	
 		int ROW_CNT = 10;
 		DML_Board dml = new DML_Board();
 		int pagination = dml.select_pageCount(ROW_CNT);
@@ -61,7 +62,7 @@
 				<%
 						}
 					} else {
-				// 글 없음
+					// 글 없음
 				%>
 				<tbody>
 					<tr>
@@ -79,27 +80,30 @@
 				/* 조건 */
 				if (pagination > 0) {
 					for (int i = 0; i < pagination; i++) {
-			%>
-			<%
-				// TODO 페이지네이션(pre, next)
-			%>
-			<a href="index.jsp?contentPage=Board/<%=board_name %>main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
-			<%
+				%>
+				<%
+					// TODO 페이지네이션(pre, next)
+				%>
+				<a
+					href="index.jsp?contentPage=Board/<%=board_name%>main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+				<%
 					}
 				}
 			%>
 		</div>
 		<%
-			// TODO 관리자면 아래 div 활성화
+			// TODO session에서 회원정보 확인. 관리자인 경우 아래 글쓰기 버튼 활성화
+			Member_List user = (Member_List)session.getAttribute("member");
 			/* 조건(rid==1) */
-			{
+			if (user != null) {
+				if (user.getRid() == 1) {
 		%>
 		<div id="submit" class="">
-			<!-- TODO write 링크 -->
-			<a href="index.jsp?contentPage=Board/<%=board_name %>write.jsp"><input
+			<a href="index.jsp?contentPage=Board/<%=board_name%>write.jsp"><input
 				type="button" class="btn btn-primary" value="글쓰기"></a>
 		</div>
 		<%
+				}
 			}
 		%>
 	</div>
