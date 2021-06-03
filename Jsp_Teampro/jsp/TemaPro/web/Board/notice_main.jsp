@@ -15,8 +15,13 @@
 	<!-- 다만 글 작성은 관리자(rid = 0)만 가능, 일반회원(rid = 1)은 불가능 -->
 	<%
 		// 100 = 공지사항
+		final String board_name = "notice_";
 		final int BID = 100;
-	
+		int pg;
+		if(request.getParameter("pg")!=null)
+			pg = Integer.parseInt(request.getParameter("pg"));
+		else
+			pg = 1;
 		// TODO session에서 회원정보 확인. 관리자인 경우 아래 글쓰기 버튼 활성화
 		int ROW_CNT = 10;
 		DML_Board dml = new DML_Board();
@@ -41,12 +46,12 @@
 					/* 조건 */
 					if (pagination > 0) {
 						// 글 있음
-						list = dml.select_all(1, ROW_CNT);// default page = 1
+						list = dml.select_all(pg, ROW_CNT);// default page = 1
 						for (Board b : list) {
 				%>
 				<tbody>
 					<tr id="<%=b.getArticle_idx()%>"
-						onclick="notice_readArticle(<%=b.getArticle_idx()%>)">
+						onclick="<%=board_name%>readArticle(<%=b.getArticle_idx()%>)">
 						<th scope="row"><%=b.getArticle_idx()%></th>
 						<td><%=b.getTitle()%></td>
 						<td><%=b.getUname()%></td>
@@ -78,7 +83,7 @@
 			<%
 				// TODO 페이지네이션(pre, next)
 			%>
-			<a href="#"><%=(i + 1)%></a>
+			<a href="index.jsp?contentPage=Board/<%=board_name %>main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
 			<%
 					}
 				}
@@ -91,8 +96,8 @@
 		%>
 		<div id="submit" class="">
 			<!-- TODO write 링크 -->
-			<a href="index.jsp?contentPage=Board/notice_write.jsp"><input
-				type="button" value="글쓰기"></a>
+			<a href="index.jsp?contentPage=Board/<%=board_name %>write.jsp"><input
+				type="button" class="btn btn-primary" value="글쓰기"></a>
 		</div>
 		<%
 			}
