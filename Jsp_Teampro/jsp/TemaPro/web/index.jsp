@@ -32,7 +32,8 @@
  	        #header { 	        	 
  	            text-align: center;
  	            width: 1200px; 
- 	            height: 200px;  	            
+ 	            height: 200px;
+ 	            margin:0;  	            
  	        }	         
  	        #main {
  	            width: 1200px;

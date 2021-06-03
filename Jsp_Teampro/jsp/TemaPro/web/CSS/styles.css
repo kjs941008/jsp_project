@@ -49,6 +49,10 @@
   }
 }
 
+#d_title{
+	margin: 0;
+}
+
 body {
   margin: 0;
   font-family: var(--bs-font-sans-serif);

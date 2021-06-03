@@ -14,9 +14,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>전기차 리스트</h2>
+	<h3>차종별 차량 보조금 현황</h3>
 	<div>
-		<form>
+		<form>	
 			<fieldset>
 				<legend>차량 검색 필드</legend>
 				<label>검색분류</label>
@@ -36,7 +36,7 @@
 	</div>
 	
 	<div>
-		<table border = "1">
+		<table class="table table-bordered my-3">
 			<thead>
 				<tr>
 					<th>차량종류</th>

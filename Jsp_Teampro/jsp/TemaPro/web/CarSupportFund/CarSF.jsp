@@ -8,10 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="CSS/styles.css" rel="stylesheet" />
 </head>
 <body>
-	<h2>시도별 차량 보조금 현황</h2>
-	<table border="1">
+	<h3>시도별 차량 보조금 현황</h3>
+	<button type="button" class="btn btn-outline-secondary btn-sm my-xl-3" style="float:right" onclick="history.back()">뒤로가기</button>
+	<table class="table table-bordered">
 		<tr>
 			<th>시도별</th>
 			<th>전기차</th>

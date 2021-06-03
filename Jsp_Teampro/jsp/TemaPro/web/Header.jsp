@@ -33,7 +33,7 @@ Object rid = session.getAttribute("rid");
         String contentPage;
     %>
 	<div id="wrap">
-		<div class="container px-4 bg-dark py-3">
+		<div class="container px-4 bg-dark py-3" id="d_title">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">전기차 커뮤니티</h1>
                     <p class="lead fw-normal text-white-50 mb-0">With clean & new EC</p>
@@ -49,7 +49,7 @@ Object rid = session.getAttribute("rid");
                         <li class="nav-item dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">보조금</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="?contentPage=index.jsp">보조금 조회</a></li>
+                                <li><a class="dropdown-item" href="?contentPage=SupportMain.jsp">보조금 조회</a></li>
                                 <li><a class="dropdown-item" href="?contentPage=SubMain.jsp">문의처 조회</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">보조금 관련 문의</a></li>
