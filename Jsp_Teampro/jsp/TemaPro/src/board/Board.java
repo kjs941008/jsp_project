@@ -119,4 +119,10 @@ public class Board {
 		this.mod_date = mod_date;
 	}
 
+	@Override
+	public String toString() {
+		return "Board [uname=" + uname + ", article_idx=" + article_idx + ", bid=" + bid + ", mid=" + mid + ", title="
+				+ title + ", content=" + content + ", reg_date=" + reg_date + ", mod_date=" + mod_date + "]";
+	}
+
 }
