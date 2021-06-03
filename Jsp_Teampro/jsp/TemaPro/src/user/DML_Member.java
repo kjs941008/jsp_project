@@ -42,6 +42,7 @@ public class DML_Member {
 	 */
 	public int insert_member(boolean isManager, String userid, String upasswd, String uname) {
 		int result = -1;
+		String encrypted = Sha256.ecrypt(upasswd);
 		String sql = "INSERT INTO member_list (rid, userid, upasswd, uname, regdate) VALUES (?,?,?,?,?)";
 		try {
 			if (conn == null)
@@ -52,7 +53,7 @@ public class DML_Member {
 			else
 				pstmt.setInt(1, USER_NORMAL);
 			pstmt.setString(2, userid);
-			pstmt.setString(3, upasswd);
+			pstmt.setString(3, encrypted);
 			pstmt.setString(4, uname);
 			ts = new Timestamp(System.currentTimeMillis());
 			sdf = new SimpleDateFormat(MySQL.FORM_TIME24HOURS);
@@ -170,6 +171,46 @@ public class DML_Member {
 				result = 1;
 			else
 				result = 0;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * 비밀번호 확인 | 로그인
+	 * 
+	 * @param inpur_id
+	 * @param input_pwd
+	 * @return == 1 일치 | == 0 불일치 | == -1 에러
+	 */
+	public int check_pwd(String inpur_id, String input_pwd) {
+		int result = -1;
+		String encrypted = Sha256.ecrypt(input_pwd);
+		String sql = "SELECT * FROM member_list WHERE userid = ?";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, inpur_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				if (encrypted.equals(rs.getString("upasswd")))
+					result = 1;
+				else
+					result = 0;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

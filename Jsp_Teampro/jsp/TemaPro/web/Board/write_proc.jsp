@@ -32,6 +32,6 @@
 		// 에러
 		script.println("alert('에러.')");
 	}
-	script.println("location.href = 'notice_main.jsp'");
+	script.println("location.href = '../index.jsp?contentPage=Board/notice_main.jsp'");
 	script.println("</script>");
 %>

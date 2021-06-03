@@ -9,7 +9,7 @@
 <body>
 	<!-- writer | title | content | timestamp(reg) -->
 	<form name="form" id="form" role="form" method="post"
-		action="write_proc.jsp">
+		action="Board/write_proc.jsp">
 		<div class="mb-3" style="visibility: hidden;">
 			<label for="bid">게시판 id</label> <input type="number"
 				class="form-control" name="bid" id="bid" value="100">
