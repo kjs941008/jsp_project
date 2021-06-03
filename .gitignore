@@ -109,3 +109,4 @@ target/
 .metadata/.plugins/org.springframework.ide.eclipse.aop.core/.state
 .metadata/version.ini
 *.class
+Jsp_Teampro/jsp/TemaPro/bin/board/DML_Board.class
