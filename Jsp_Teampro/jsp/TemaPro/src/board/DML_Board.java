@@ -174,7 +174,7 @@ public class DML_Board {
 	public ArrayList<Board> select_article1(SEL_OPT opt, String param, int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid)");
+		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC) sub");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -239,7 +239,7 @@ public class DML_Board {
 	public ArrayList<Board> select_all(int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid");
+		sb.append("SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -329,7 +329,7 @@ public class DML_Board {
 
 	public Board getArticle(int article_idx) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid) WHERE article_idx = ?");
+		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC) sub WHERE sub.article_idx = ?");
 		String sql = "";
 		try {
 			if (conn == null)

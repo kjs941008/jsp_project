@@ -45,5 +45,18 @@
 			<!-- 내용 -->
 		</div>
 	</div>
+	<div class="">
+		<!-- 버튼: 목록보기, 수정, 삭제... -->
+		<input class="btn btn-primary" type="button" value="목록보기" />
+		<%
+			// TODO 권한 확인 후 수정, 삭제버튼 활성화
+		{
+		%>
+		<input class="btn btn-primary" type="button" value="수정" />
+		<input class="btn btn-primary" type="button" value="삭제" />
+		<%
+			}
+		%>
+	</div>
 </body>
 </html>
