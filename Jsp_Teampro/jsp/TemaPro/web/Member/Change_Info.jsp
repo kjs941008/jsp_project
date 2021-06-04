@@ -1,9 +1,12 @@
+<%@page import="Member.MemberInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta charset="utf-8" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-<% Object id = session.getAttribute("id"); %>
+<%
+MemberInfo userinfo  = (MemberInfo)session.getAttribute("userinfo");
+	String id = userinfo.getUserid();%>
 function changepw(){
 	window.open('Member/Change_Pw.jsp',"_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400")
 }

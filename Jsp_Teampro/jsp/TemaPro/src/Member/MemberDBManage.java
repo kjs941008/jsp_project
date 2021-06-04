@@ -25,9 +25,9 @@ public class MemberDBManage {
 			pstmt.setString(1, userid);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				// 아이디 갯수 확인 
+				// �븘�씠�뵒 媛��닔 �솗�씤 
 				if(rs.getInt("cnt") == 0) {
-					// 1이 나오면 아이디가 있고 0이면 없음
+					// 1�씠 �굹�삤硫� �븘�씠�뵒媛� �엳怨� 0�씠硫� �뾾�쓬
 					result = 0;
 				}
 			}
@@ -98,14 +98,14 @@ public class MemberDBManage {
 			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
 			pstmt = conn.prepareStatement(""
 							+ "SELECT * FROM charge.member_list " 
-							+ " WHERE userid=?"
+							+ " WHERE userid= ?"
 							+ "");
 			pstmt.setString(1, userid);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				// DB 비밀번호 비교
+				// DB 鍮꾨�踰덊샇 鍮꾧탳
 				if(rs.getString("upasswd").equals(upasswd)) {
-					//비밀번호 일치하면
+					//鍮꾨�踰덊샇 �씪移섑븯硫�
 					member.setUserid(userid);
 					member.setUpasswd(upasswd);
 					member.setUmail(rs.getString("umail"));
@@ -115,7 +115,7 @@ public class MemberDBManage {
 					member.setSuc(1);
 				}
 				else {
-					//비밀번호 불일치
+					//鍮꾨�踰덊샇 遺덉씪移�
 					member.setSuc(0);
 				}
 			}
@@ -222,7 +222,7 @@ public class MemberDBManage {
 			pstmt.setString(2, umail);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-					//입력한 정보가 맞으면 ID리턴
+					//�엯�젰�븳 �젙蹂닿� 留욎쑝硫� ID由ы꽩
 					member.setUserid(rs.getString("userid"));
 					member.setSuc(1);
 					return member;
@@ -239,7 +239,7 @@ public class MemberDBManage {
 				
 			}
 		}
-		//입력한 정보가 틀리면
+		//�엯�젰�븳 �젙蹂닿� ��由щ㈃
 		member.setSuc(0);
 		return member;
 	}

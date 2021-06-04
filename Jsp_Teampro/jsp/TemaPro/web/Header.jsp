@@ -1,3 +1,4 @@
+<%@page import="Member.MemberInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,7 +7,11 @@
 <meta charset="UTF-8">
 <title>상단 영역</title>
 <%
-Object id = session.getAttribute("userinfo.getUserid");
+String id = null;
+if((MemberInfo)session.getAttribute("userinfo") != null){
+	MemberInfo userinfo  = (MemberInfo)session.getAttribute("userinfo");
+	id = userinfo.getUserid();
+}
 %>
 <link href="CSS/styles.css" rel="stylesheet" />
    <script type="text/javascript">       
