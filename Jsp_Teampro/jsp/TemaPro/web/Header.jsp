@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <title>상단 영역</title>
 <%
-Object id = session.getAttribute("id");
-Object name = session.getAttribute("name");
-Object rid = session.getAttribute("rid");
+Object id = session.getAttribute("userinfo.getUserid");
 %>
 <link href="CSS/styles.css" rel="stylesheet" />
    <script type="text/javascript">       

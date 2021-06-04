@@ -14,6 +14,7 @@
     		/*세션에 개인정보 저장  */
     		session.setAttribute("userinfo", mif);
     		script.println("<script>");
+    		script.println("alert('로그인 성공.')");
     		script.println("location.href = '../index.jsp'");
     		script.println("</script>");
     	}
