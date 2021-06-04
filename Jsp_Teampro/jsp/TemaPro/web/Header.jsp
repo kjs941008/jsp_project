@@ -25,6 +25,9 @@ Object rid = session.getAttribute("rid");
    		$('#change').on('click',function(){
    			location.href='index.jsp?contentPage=Member/Change_Info.jsp';
    		})
+   		$('#board_notice').on('click',function(){
+   			location.href='index.jsp?contentPage=Board/notice_main.jsp';
+   		})
    	})
    </script>    
 </head>
@@ -59,6 +62,7 @@ Object rid = session.getAttribute("rid");
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">충전소 건의</a></li>                                
                                 <li><a class="dropdown-item" href="#!">전기차 실사용기</a></li>
+                                <li id="board_notice"><a class="dropdown-item" href="#">공지사항</a></li>
                             </ul>
                         </li>
                     </ul>

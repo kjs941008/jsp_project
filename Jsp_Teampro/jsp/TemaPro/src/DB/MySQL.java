@@ -2,11 +2,12 @@ package DB;
 
 public interface MySQL {
 	public static final String CLASS_NAME = "com.mysql.cj.jdbc.Driver";
-	public static final String DB_URL = "jdbc:mysql://mydb-js.ctxirfweshyb.us-east-2.rds.amazonaws.com:3306/charge?useUnicode=yes&characterEncoding=UTF8";
-	public static final String USER_ID = "user";
-	public static final String USER_PW = "Asdf123!";
-	public static final String ADMIN_ID = "admin";
-	public static final String ADMIN_PW = "asdf1234";
+//	public static final String DB_URL = "jdbc:mysql://mydb-js.ctxirfweshyb.us-east-2.rds.amazonaws.com:3306/charge?useUnicode=yes&characterEncoding=UTF8";
+	public static final String DB_URL = "jdbc:mysql://192.168.0.104:3306/charge?useUnicode=yes&characterEncoding=UTF8";
+	public static final String USER_ID = "root";
+	public static final String USER_PW = "1234";
+	public static final String ADMIN_ID = "root";
+	public static final String ADMIN_PW = "1234";
 	/**
 	 * 2020-12-31 11:59:59
 	 */
