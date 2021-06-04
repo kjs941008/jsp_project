@@ -1,4 +1,4 @@
-<%@page import="Ask.AskInfo"%>
+<%@page import="Ask.AskDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Ask.AskDBManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -9,12 +9,12 @@
 <title>Insert title here</title>
 <%
 	AskDBManager adb = new AskDBManager();
-	ArrayList<AskInfo> list = adb.select("전기승용");
+	ArrayList<Ask.AskDTO> list = adb.select("전기승용");
 %>
 </head>
 <body>
 <%
-        String listPage;
+	String listPage;
 %>
 	<div class="container my-3 text-center">
 		<h4 style="color:#5872A5;"><2021 전기자동차(승용) 지자체 연락처></h4>    
@@ -28,8 +28,10 @@
 			    </tr>
 			</thead>
    			<tbody>
-		      <%for(int i=0; i<list.size(); i++){
-		    	  AskInfo info_list = list.get(i); %>
+		      <%
+		      	for(int i=0; i<list.size(); i++){
+		      		    	  Ask.AskDTO info_list = list.get(i);
+		      %>
 		      <tr>
 		      	<td><% out.print(info_list.getCity()); %></td>
 		      	<td><% out.print(info_list.getSido()); %></td>

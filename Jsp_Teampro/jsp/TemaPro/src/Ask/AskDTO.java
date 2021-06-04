@@ -1,6 +1,6 @@
 package Ask;
 
-public class AskInfo {
+public class AskDTO {
 	private String cartype;
 	private String sido;
 	private String city;

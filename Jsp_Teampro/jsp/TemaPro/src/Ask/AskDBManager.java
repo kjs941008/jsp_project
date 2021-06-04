@@ -7,8 +7,8 @@ import Ask.DBinfo.DBInfo;
 
 public class AskDBManager {
 	
-	public ArrayList<AskInfo> select(String ct){
-		ArrayList<AskInfo> list = new ArrayList<AskInfo>();
+	public ArrayList<AskDTO> select(String ct){
+		ArrayList<AskDTO> list = new ArrayList<AskDTO>();
 		Connection conn = null;
 		PreparedStatement pstmt =null;
 		ResultSet rs = null;
@@ -25,7 +25,7 @@ public class AskDBManager {
 				String dep = rs.getString("dep");
 				String pn = rs.getString("pn");
 			
-				AskInfo info_list = new AskInfo();
+				AskDTO info_list = new AskDTO();
 				info_list.setSido(sido);
 				info_list.setCity(city);
 				info_list.setDep(dep);
