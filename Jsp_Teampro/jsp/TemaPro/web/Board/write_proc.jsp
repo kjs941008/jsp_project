@@ -18,9 +18,9 @@
 	// 	Board article;
 	// 	article = new Board(bid, mid, title, content);
 	DML_Board dml = new DML_Board();
-	// 	int result = dml.insert_article(bid, mid, title, content);
-	int result = dml.insert_article(bid, 0, title, content);
-
+	int result = dml.insert_article(bid, mid, title, content);
+	// 	int result = dml.insert_article(bid, 1, title, content);
+	
 	script.println("<script>");
 	if (result > 0) {
 		// 글쓰기 성공

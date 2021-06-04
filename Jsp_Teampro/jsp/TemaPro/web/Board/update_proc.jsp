@@ -5,17 +5,14 @@
 <%@ page import="Member.MemberInfo"%>
 <%@ page import="java.io.PrintWriter"%>
 <%
-	Board orgin = null;
-	orgin = (Board) request.getAttribute("article");
-	
 	request.setCharacterEncoding("UTF-8");
 	PrintWriter script = response.getWriter();
-	int article_idx = orgin.getArticle_idx();
+	int article_idx = Integer.parseInt(request.getParameter("idx"));
 	int bid = Integer.parseInt(request.getParameter("bid"));
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	int mid = -1;
-	mid = orgin.getMid();
+	
 	DML_Board dml = new DML_Board();
 	int result = dml.update_article(article_idx, title, content);
 	

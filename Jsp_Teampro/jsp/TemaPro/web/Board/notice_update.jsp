@@ -12,20 +12,18 @@
 	<%
 		Board orgin = null;
 		// TODO 왜 orgin이 null이지...?
-		orgin = (Board)request.getAttribute("test");
-		System.out.println(orgin.toString());
+		int article_idx = Integer.parseInt(request.getParameter("idx"));
+		DML_Board dml = new DML_Board();
+		orgin = dml.getArticle(article_idx);
 	%>
 	<!-- writer | title | content | timestamp(reg) -->
 	<form name="form" id="form" role="form" method="post"
 		action="Board/update_proc.jsp">
 		<div class="mb-3" style="visibility: hidden;">
+			<label for="idx">게시글 id</label> <input type="number"
+				class="form-control" name="idx" id="idx" value="<%=orgin.getArticle_idx()%>">
 			<label for="bid">게시판 id</label> <input type="number"
-				class="form-control" name="bid" id="bid" value="100">
-		</div>
-		<div class="mb-3" style="visibility: hidden;">
-			<label for="member">작성자</label> <input type="text"
-				class="form-control" name="member" id="member"
-				value="<%=orgin.getUname()%>">
+				class="form-control" name="bid" id="bid" value="<%=orgin.getBid()%>">
 		</div>
 		<div class="mb-3">
 			<label for="title">제목</label> <input type="text" class="form-control"

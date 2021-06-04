@@ -93,18 +93,18 @@
 		</div>
 		<%
 			// TODO session에서 회원정보 확인. 관리자인 경우 아래 글쓰기 버튼 활성화
-			Member_List user = (Member_List)session.getAttribute("member");
-			/* 조건(rid==1) */
-			if (user != null) {
-				if (user.getRid() == 1) {
+// 			Member_List user = (Member_List)session.getAttribute("member");
+// 			/* 조건(rid==1) */
+// 			if (user != null) {
+// 				if (user.getRid() == 1) {
 		%>
 		<div id="submit" class="">
 			<a href="index.jsp?contentPage=Board/<%=board_name%>write.jsp"><input
 				type="button" class="btn btn-primary" value="글쓰기"></a>
 		</div>
 		<%
-				}
-			}
+// 				}
+// 			}
 		%>
 	</div>
 </body>
