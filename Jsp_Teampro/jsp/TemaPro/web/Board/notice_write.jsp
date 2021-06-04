@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%-- <%@ page import="user.Member_List"%> --%>
+<%@ page import="Member.MemberInfo"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,18 +9,19 @@
 <title>Notice</title>
 </head>
 <body>
+	<%
+		final int BID = 100;
+		MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
+	%>
 	<!-- writer | title | content | timestamp(reg) -->
 	<form name="form" id="form" role="form" method="post"
 		action="Board/proc_write.jsp">
 		<div class="mb-3" style="visibility: hidden;">
 			<label for="bid">게시판 id</label> <input type="number"
-				class="form-control" name="bid" id="bid" value="100">
+				class="form-control" name="bid" id="bid" value="<%=BID%>"> <label
+				for="mid">게시자 id</label> <input type="number" class="form-control"
+				name="mid" id="mid" value="<%=user.getMid()%>">
 		</div>
-		<!-- 		<div class="mb-3" style="visibility: hidden;"> -->
-		<!-- 			<label for="member">작성자</label> <input type="text" -->
-		<!-- 				class="form-control" name="member" id="member" -->
-		<%-- 				value="<%=session.getAttribute("obj")%>"> --%>
-		<!-- 		</div> -->
 		<div class="mb-3">
 			<label for="title">제목</label> <input type="text" class="form-control"
 				name="title" id="title" placeholder="제목을 입력해 주세요">

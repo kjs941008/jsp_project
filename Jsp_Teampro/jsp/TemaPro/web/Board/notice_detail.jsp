@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="board.Board"%>
+<%@ page import="Member.MemberInfo"%>
 <%@ page import="board.DML_Board"%>
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,8 @@
 		// 100 = 공지사항
 		final String board_name = "notice_";
 	
+		MemberInfo user = (MemberInfo)session.getAttribute("userinfo");
+		
 		int article_idx = Integer.parseInt(request.getParameter("idx"));
 		DML_Board dml = new DML_Board();
 		Board article = null;
@@ -57,8 +60,8 @@
 		<a href="index.jsp?contentPage=Board/<%=board_name%>main.jsp"><input
 			class="btn btn-primary" type="button" value="목록보기" /></a>
 		<%
-			// TODO 권한 확인 후 수정, 삭제버튼 활성화
-			{
+			if (user != null) {
+				if (article.getMid() == Integer.parseInt(user.getMid())) {
 		%>
 		<a
 			href="index.jsp?contentPage=Board/<%=board_name%>update.jsp?idx=<%=article.getArticle_idx()%>"><input
@@ -66,7 +69,8 @@
 			class="btn btn-primary"
 			onclick="<%=board_name%>deleteArticle(<%=article_idx%>)"
 			type="button" value="삭제" />
-		<%
+		<%			
+				}
 			}
 		%>
 	</div>

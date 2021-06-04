@@ -10,16 +10,16 @@
 	int bid = Integer.parseInt(request.getParameter("bid"));
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-	// TODO 세션에서 회원 객체 받아와서 회원번호 입력
 	int mid = -1;
-	MemberInfo user = (MemberInfo) session.getAttribute("member");
+	MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
 	if (user != null)
 		mid = Integer.parseInt(user.getMid());
-	// 	Board article;
-	// 	article = new Board(bid, mid, title, content);
+	// Board article;
+	// article = new Board(bid, mid, title, content);
 	DML_Board dml = new DML_Board();
+	// param = 게시판ID, 게시자ID(글쓴이), 제목, 내용
 	int result = dml.insert_article(bid, mid, title, content);
-	// 	int result = dml.insert_article(bid, 1, title, content);
+	// int result = dml.insert_article(bid, 1, title, content);
 	
 	script.println("<script>");
 	if (result > 0) {
