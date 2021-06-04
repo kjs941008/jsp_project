@@ -88,6 +88,7 @@ public class MemberDBManage {
 	}
 	public MemberInfo ckLogin(String userid,String upasswd) {
 		MemberInfo member = new MemberInfo();
+		member.setSuc(-1);
 		Connection conn =  null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -107,15 +108,15 @@ public class MemberDBManage {
 					//비밀번호 일치하면
 					member.setUserid(userid);
 					member.setUpasswd(upasswd);
+					member.setUmail(rs.getString("umail"));
 					member.setUname(rs.getString("uname"));
 					member.setUaddr(rs.getString("uaddr"));
+					member.setRid(rs.getInt("rid"));
 					member.setSuc(1);
-					return member;
 				}
 				else {
 					//비밀번호 불일치
 					member.setSuc(0);
-					return member;
 				}
 			}
 		}catch (Exception e) {
@@ -130,9 +131,8 @@ public class MemberDBManage {
 				
 			}
 		}
-		//아이디가 틀리면
-		member.setSuc(-1);
 		return member;
+
 	}
 	public boolean ChangeInfo(String userid,String uname,String uaddr,String umail) {
 		Connection conn = null;

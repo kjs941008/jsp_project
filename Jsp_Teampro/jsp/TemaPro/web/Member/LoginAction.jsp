@@ -12,10 +12,7 @@
     	MemberInfo mif = mdb.ckLogin(id,pw);
     	if(mif.getSuc()==1){
     		/*세션에 개인정보 저장  */
-    		session.setAttribute("id", id);
-    		session.setAttribute("name", mif.getUname());
-    		session.setAttribute("rid", mif.getRid());
-    		session.setAttribute("addr", mif.getUaddr());
+    		session.setAttribute("userinfo", mif);
     		script.println("<script>");
     		script.println("location.href = '../index.jsp'");
     		script.println("</script>");
