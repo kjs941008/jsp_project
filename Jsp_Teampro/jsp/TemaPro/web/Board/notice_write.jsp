@@ -33,6 +33,9 @@
 		</div>
 		<div class="mb-3">
 			<input class="btn btn-primary" type="submit" value="작성" />
+			<a href="javascript:history.back();">
+				<input class="btn btn-primary" value="뒤로가기" />
+			</a>
 		</div>
 	</form>
 </body>

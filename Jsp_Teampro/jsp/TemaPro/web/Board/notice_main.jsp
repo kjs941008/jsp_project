@@ -95,7 +95,7 @@
 		<%
 			MemberInfo user = (MemberInfo)session.getAttribute("userinfo");
 			if (user != null) {
-				if (user.getRid() == 1) {
+				if (user.getRid() == 0) {
 		%>
 		<div id="submit" class="">
 			<a href="index.jsp?contentPage=Board/<%=board_name%>write.jsp"><input

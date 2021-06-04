@@ -8,12 +8,10 @@
 	request.setCharacterEncoding("UTF-8");
 	PrintWriter script = response.getWriter();
 	int bid = Integer.parseInt(request.getParameter("bid"));
+	String midStr = request.getParameter("mid");
+	int mid = Integer.parseInt(midStr);
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
-	int mid = -1;
-	MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
-	if (user != null)
-		mid = Integer.parseInt(user.getMid());
 	// Board article;
 	// article = new Board(bid, mid, title, content);
 	DML_Board dml = new DML_Board();

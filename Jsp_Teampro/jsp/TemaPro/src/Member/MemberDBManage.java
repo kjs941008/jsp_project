@@ -112,6 +112,8 @@ public class MemberDBManage {
 					member.setUname(rs.getString("uname"));
 					member.setUaddr(rs.getString("uaddr"));
 					member.setRid(rs.getInt("rid"));
+					member.setMid(rs.getString("mid"));
+					member.setRegdate(rs.getString("regdate"));
 					member.setSuc(1);
 				}
 				else {

@@ -61,7 +61,8 @@
 			class="btn btn-primary" type="button" value="목록보기" /></a>
 		<%
 			if (user != null) {
-				if (article.getMid() == Integer.parseInt(user.getMid())) {
+				int check = Integer.parseInt(user.getMid());
+				if (check == article.getMid()) {
 		%>
 		<a
 			href="index.jsp?contentPage=Board/<%=board_name%>update.jsp?idx=<%=article.getArticle_idx()%>"><input
