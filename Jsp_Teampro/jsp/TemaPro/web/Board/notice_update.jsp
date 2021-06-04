@@ -18,7 +18,7 @@
 	%>
 	<!-- writer | title | content | timestamp(reg) -->
 	<form name="form" id="form" role="form" method="post"
-		action="Board/update_proc.jsp">
+		action="Board/proc_update.jsp">
 		<div class="mb-3" style="visibility: hidden;">
 			<label for="idx">게시글 id</label> <input type="number"
 				class="form-control" name="idx" id="idx" value="<%=orgin.getArticle_idx()%>">
