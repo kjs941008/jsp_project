@@ -12,9 +12,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+	String contentPage;
+%>
 	<h3>차종별 차량 보조금 현황</h3>
 	<div>
-		<form>	
+		<form method="get">	
 			<fieldset>
 				<legend>차량 검색 필드</legend>
 				<label>검색분류</label>
