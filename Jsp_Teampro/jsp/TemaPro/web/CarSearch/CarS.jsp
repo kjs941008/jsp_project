@@ -19,13 +19,9 @@
 %>
 	<h3>차종별 차량 보조금 현황</h3>
 	<div>
-<<<<<<< HEAD
 		<form>	
-				<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
-=======
-		<form method="get">	
+			<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
 			<fieldset>
->>>>>>> 9344a0f9cc8ddd56b3fa7c5cf6ae9a02cc2ad791
 				<legend>차량 검색 필드</legend>
 				<label>검색분류</label>
 					<select name = "f" id="f">
