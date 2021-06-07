@@ -19,7 +19,7 @@ public class CarS_DAO {
 			
 			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
 			pstmt = conn.prepareStatement(""
-							+ "SELECT * FROM Subsidy_car "
+							+ "SELECT * FROM charge.subsidy_car "
 							+ "");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {

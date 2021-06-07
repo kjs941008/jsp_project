@@ -10,6 +10,7 @@ import java.util.TimeZone;
 
 import DB.DBConnect;
 import DB.MySQL;
+import Member.MemberInfo;
 
 /**
  * DML: SELECT || INSERT || UPDATE || DELETE row(s)
@@ -23,9 +24,9 @@ public class DML_Member {
 //	private Statement stmt = null;
 //	private CallableStatement cs = null;
 	private ResultSet rs = null;
-	private Member_List user = null;
+	private MemberInfo user = null;
 	private Member_Rank rank = null;
-	private List<Member_List> list = null;
+	private List<MemberInfo> list = null;
 	private Timestamp ts = null;
 	private SimpleDateFormat sdf = null;
 	private final int MANAGER = 0;
@@ -234,7 +235,7 @@ public class DML_Member {
 	 * @param mid 회원 번호
 	 * @return Member_List 객체
 	 */
-	public Member_List getUser(int mid) {
+	public MemberInfo getUser(int mid) {
 		String sql = "SELECT * FROM member_list WHERE mid = ?";
 		try {
 			if (conn == null)
@@ -243,15 +244,17 @@ public class DML_Member {
 			pstmt.setInt(1, mid);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				user = new Member_List();
-				user.setMid(mid);
+				user = new MemberInfo();
+//				user.setMid(mid);
+				user.setMid("" + mid);
 				user.setRid(rs.getInt("rid"));
 				user.setUserid(rs.getString("userid"));
 				user.setUname(rs.getString("uname"));
 				user.setUpasswd(rs.getString("upasswd"));
 				user.setUaddr(rs.getString("uaddr"));
 				user.setUmail(rs.getString("umail"));
-				user.setRegdate(rs.getTimestamp("regdate"));
+//				user.setRegdate(rs.getTimestamp("regdate"));
+				user.setRegdate(rs.getString("regdate"));
 			} else
 				user = null;
 		} catch (Exception e) {

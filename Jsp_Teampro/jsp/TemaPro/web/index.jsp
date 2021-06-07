@@ -43,7 +43,6 @@
  	        } 
  	        #footer {
  	        	bottom:0; left:0; right:0;
-/*  	            clear: left;  */
  	            width: 100%; 
  	            height: 60px; 
  	            position : absolute;

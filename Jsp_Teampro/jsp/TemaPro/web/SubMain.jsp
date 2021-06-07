@@ -5,7 +5,7 @@
 <%
     String listPage=request.getParameter("listPage");
     if(listPage==null){
-        listPage="FirstView.jsp";
+        listPage="Info/Info_first.jsp";
     }
 %>
 <!DOCTYPE html>

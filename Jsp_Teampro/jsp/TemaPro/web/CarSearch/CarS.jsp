@@ -2,8 +2,10 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
 <%
 	String selected = (String)request.getParameter("f");
+	request.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html>
 <html>
@@ -12,10 +14,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+	String contentPage;
+%>
 	<h3>차종별 차량 보조금 현황</h3>
 	<div>
+<<<<<<< HEAD
 		<form>	
+				<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
+=======
+		<form method="get">	
 			<fieldset>
+>>>>>>> 9344a0f9cc8ddd56b3fa7c5cf6ae9a02cc2ad791
 				<legend>차량 검색 필드</legend>
 				<label>검색분류</label>
 					<select name = "f" id="f">
@@ -24,12 +34,12 @@
 						<option ${(param.f == "freight")? "selected" : "" } id="화물">화물</option>
 						<option ${(param.f == "micro bike")? "selected" : "" } id="경형" >경형 이륜차</option>
 						<option ${(param.f == "small bike")? "selected" : "" } id="소형" >소형 이륜차</option>
-						<option ${(param.f == "big bike")? "selected" : "" } id="대형" >대형 이륜차</option>
+						<option ${(param.f == "big bike")? "selected" : "" } id="대형" >대형·기타형 이륜차</option>
 						<option ${(param.f == "hydro bike")? "selected" : "" } id="수소" >수소 승용</option>
 						<option ${(param.f == "micro Excavator")? "selected" : "" } id="굴착기" >전기 굴착기</option>
-					</select>
-					<input type = "submit" value = "검색">
-			</fieldset>
+					</select> 
+<!-- 					<a href="index.jsp?contentPage=CarSearch/CarS.jsp&f=">검색</a> -->
+			<button type="submit" value="검색" id="ok">검색</button>
 		</form>
 	</div>
 	

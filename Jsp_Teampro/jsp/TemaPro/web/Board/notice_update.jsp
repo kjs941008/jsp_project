@@ -11,7 +11,6 @@
 <body>
 	<%
 		Board orgin = null;
-		// TODO 왜 orgin이 null이지...?
 		int article_idx = Integer.parseInt(request.getParameter("idx"));
 		DML_Board dml = new DML_Board();
 		orgin = dml.getArticle(article_idx);
