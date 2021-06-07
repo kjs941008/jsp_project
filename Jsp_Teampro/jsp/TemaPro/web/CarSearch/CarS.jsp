@@ -20,7 +20,6 @@
 	
 	<h3>차종별 차량 보조금 현황</h3>
 	<div class="container my-3 text-center">
-	<div>
 		<form>	
 			<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
 			<fieldset>
@@ -37,10 +36,8 @@
 					</select> 
 <!-- 					<a href="index.jsp?contentPage=CarSearch/CarS.jsp&f=">검색</a> -->
 			<button type="submit" value="검색" id="ok">검색</button>
-		</form>
-	</div>
-	
-	<div>
+		</form>	
+		
 		<table class="table table-bordered my-3">
 		<button type="button" class="btn btn-outline-secondary btn-sm my-xl-1" style="float:right" onclick="history.back()">뒤로가기</button>
 			<thead>
@@ -79,7 +76,6 @@
 				%>
 			</tbody>			
 		</table>
-	</div>
 	</div>
 </body>
 
