@@ -19,6 +19,7 @@
 %>
 	<h3>차종별 차량 보조금 현황</h3>
 	<div>
+	<div id="test" style="display: none;"><%=selected %></div>
 		<form>	
 			<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
 			<fieldset>
@@ -38,7 +39,15 @@
 			<button type="submit" value="검색" id="ok">검색</button>
 		</form>
 	</div>
-	
+	<script>
+		$(document).ready(function () {
+			let test = $("#test").text();
+// 			alert('확인'+test);
+			$("#f").val(test).prop(true);
+			// 		    var tg = $("#f").attr("target");
+			// 		    $("#tutor_graduateStatus").val(tg).prop("selected",true);			
+		})
+	</script>
 	<div>
 		<table class="table table-bordered my-3">
 			<thead>
