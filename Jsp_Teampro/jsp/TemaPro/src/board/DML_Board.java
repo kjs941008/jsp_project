@@ -164,6 +164,7 @@ public class DML_Board {
 		title_content
 	}
 
+	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색. Member관리에서 만들까?
 	/**
 	 * 게시글 검색 첫 번째. 제목과 내용을 검색
 	 * 
@@ -325,7 +326,6 @@ public class DML_Board {
 		return result;
 	}
 
-	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색. Member관리에서 만들까?
 
 	public Board getArticle(int article_idx) {
 		StringBuilder sb = new StringBuilder();
@@ -364,5 +364,47 @@ public class DML_Board {
 			}
 		}
 		return article;
+	}
+
+	/**
+	 * 답글 작성
+	 * 
+	 * @param article_idx 글 번호
+	 * @param mid         회원 번호(댓글 작성자)
+	 * @param rp_level    댓글 깊이
+	 * @param rp_context  댓글 내용
+	 * @return > 0 QUERY OK || == 0 QUERY DOESNT WORK || == -1 ERROR
+	 */
+	public int write_reply(int article_idx, int mid, int rp_level, String rp_context) {
+		int result = -1;
+		String sql = "INSERT INTO board_reply (article_idx, mid, rp_level, rp_context, reg_date) VALUES (?, ?, ?, ?, ?)";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, article_idx);
+			pstmt.setInt(2, mid);
+			pstmt.setInt(3, rp_level);
+			pstmt.setString(4, rp_context);
+			ts = new Timestamp(System.currentTimeMillis());
+			sdf = new SimpleDateFormat(MySQL.FORM_TIME24HOURS);
+			sdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+			pstmt.setTimestamp(5, Timestamp.valueOf(sdf.format(ts)));
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		return result;
 	}
 }
