@@ -7,21 +7,21 @@
 	margin: 15px 35px;
 }
 #states path {
-	fill: #8dd3d6;  /*지도 색깔*/
-	stroke: #80ff80; /*경계선 색깔*/
+	fill: #808080;  /*지도 색깔*/
+	stroke: #000000; /*경계선 색깔*/
 	stroke-width: 1.5px;
 }
 
 #states path:hover {
-	fill: #ffff80;
+	fill: #92cded;
 }
 
 #states .active {
-	fill: #83d1f2;
+	fill: #92cded;
 }
 
 #states .activeDetail {
-	fill: #83d1f2;
+	fill: #92cded;
 }
 
 #states path {
@@ -31,6 +31,6 @@
 #states text {
 	cursor: pointer;
 	font-size: 15px;
-	fill: #000000;
+	fill: #ffffff;
 	font-weight : bold;
 }

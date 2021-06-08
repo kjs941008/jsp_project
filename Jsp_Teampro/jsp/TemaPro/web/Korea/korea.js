@@ -1,8 +1,6 @@
 window.onload = function() {
-    drawMap('#container');
-    
+    drawMap('#container');    
 };
-
 //지도 그리기
 function drawMap(target) {
     var width = 700; //지도의 넓이
@@ -11,9 +9,11 @@ function drawMap(target) {
     var initialX = -11900; //초기 위치값 X
     var initialY = 4050; //초기 위치값 Y
     var labels;
+//    var colorScale=d3.scaleSequential(d3.interpolateTurbo).domain([0,d3.max(d.properties.car)])
+    
+    
 
-    var projection = d3.geo
-        .mercator()
+    var projection = d3.geo.mercator()
         .scale(initialScale)
         .translate([initialX, initialY]);
     var path = d3.geo.path().projection(projection);
@@ -51,6 +51,9 @@ function drawMap(target) {
             .enter()
             .append('path')
             .attr('d', path)
+//            .style('fill', function(d){
+//            	var value=d.properties.car
+//            }
             .attr('id', function(d,i) {
                 return 'path-' + d.properties.CTP_KOR_NM;
             });
@@ -67,7 +70,7 @@ function drawMap(target) {
             .attr('text-anchor', 'middle')
             .attr('dy', '.35em')
             .text(function(d) {
-                return d.properties.CTP_KOR_NM ;
+                return d.properties.CTP_KOR_NM + "("+d.properties.car+"대)" ;
             });
     });
 
@@ -75,17 +78,17 @@ function drawMap(target) {
     function translateTolabel(d) {
         var arr = path.centroid(d);
         if (d.properties.CTPRVN_CD == "41") {
-            //서울 경기도 이름 겹쳐서 경기도 내리기
+            //경기도 내리기
             arr[1] +=
                 d3.event && d3.event.scale
                     ? d3.event.scale / height + 20
-                    : initialScale / height + 20;
-        } else if (d.properties.CTPRVN_CD == "34") {
+                    : initialScale / height + 30;
+        } else if (d.properties.CTPRVN_CD == "43") {
             //충남은 조금 더 내리기
             arr[1] +=
                 d3.event && d3.event.scale
-                    ? d3.event.scale / height + 5000
-                    : initialScale / height + 5000;
+                    ? d3.event.scale / height -30
+                    : initialScale / height -30;
         }
         return 'translate(' + arr + ')';
     }
