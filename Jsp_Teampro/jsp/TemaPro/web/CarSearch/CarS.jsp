@@ -5,8 +5,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 <%
-String selected = (String) request.getParameter("f");
-request.setCharacterEncoding("UTF-8");
+	String selected = (String) request.getParameter("f");
+	request.setCharacterEncoding("UTF-8");
 %>
 <!DOCTYPE html>
 <html>
@@ -19,13 +19,12 @@ request.setCharacterEncoding("UTF-8");
 	String contentPage;
 	%>
 	<h3>차종별 차량 보조금 현황</h3>
-	<div>
+	<div class="container my-3 text-center">
 		<div id="test" style="display: none;"><%=selected%></div>
 		<form>
 			<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
 			<fieldset>
-				<legend>차량 검색 필드</legend>
-				<label>검색분류</label> <select name="f" id="f">
+				<label>차량종류</label> <select name="f" id="f">
 					<option ${(param.f == "sedan")? "selected" : "" } id="승용" value="승용">승용</option>
 					<option ${(param.f == "micro electric")? "selected" : "" } id="초소형">초소형 전기자동차</option>
 					<option ${(param.f == "freight")? "selected" : "" } id="화물">화물</option>
@@ -49,8 +48,10 @@ request.setCharacterEncoding("UTF-8");
 			// 		    $("#tutor_graduateStatus").val(tg).prop("selected",true);			
 		})
 	</script>
-	<div>
+	<div class="container my-3 text-center">
 		<table class="table table-bordered my-3">
+		<button type="button" class="btn btn-outline-secondary btn-sm my-xl-1" 
+		style="float:right" onclick="history.back()">뒤로가기</button>
 			<thead>
 				<tr>
 					<th>차량종류</th>
