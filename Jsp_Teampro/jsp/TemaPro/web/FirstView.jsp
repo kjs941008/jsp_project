@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>첫 화면</title>
+<style>
+	body{
+		background-color:pink;
+	}
+</style>
 </head>
 <body>       
 첫 화면

@@ -51,8 +51,8 @@ function drawMap(target) {
             .enter()
             .append('path')
             .attr('d', path)
-            .attr('id', function(d) {
-                return 'path-' + d.properties.CTP_KOR_NM ;
+            .attr('id', function(d,i) {
+                return 'path-' + d.properties.CTP_KOR_NM;
             });
 
         labels = states
@@ -62,7 +62,7 @@ function drawMap(target) {
             .append('text')
             .attr('transform', translateTolabel)
             .attr('id', function(d) {
-                return 'label-' + d.properties.CTP_KOR_NM ;
+                return 'label-' + d.properties.CTP_KOR_NM;
             })
             .attr('text-anchor', 'middle')
             .attr('dy', '.35em')
@@ -74,7 +74,7 @@ function drawMap(target) {
     //텍스트 위치 조절 - 하드코딩으로 위치 조절을 했습니다.
     function translateTolabel(d) {
         var arr = path.centroid(d);
-        if (d.properties.CTPRVN_CD == "31") {
+        if (d.properties.CTPRVN_CD == "41") {
             //서울 경기도 이름 겹쳐서 경기도 내리기
             arr[1] +=
                 d3.event && d3.event.scale

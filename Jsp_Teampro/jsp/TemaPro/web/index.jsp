@@ -25,7 +25,6 @@
  	        #wrap { 
  	        	min-height:100%;
  	        	position:relative;
- 	        	padding-bottom:60px;
  	            width: 100%; 
  	            margin : 0 auto 0 auto;
  	        }        
@@ -33,7 +32,8 @@
  	            text-align: center;
  	            width: 100%; 
  	            height: 200px;
- 	            margin:0;  	            
+ 	            margin:0;
+ 	            display:inline;	            
  	        }	         
  	        #main {
  	            width: 100%;

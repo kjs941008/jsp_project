@@ -17,7 +17,7 @@
 	<title>지자체 문의처</title>
 </head>
 <body>
-    <div id="cartype" style="margin-top:20px;">
+    <div id="cartype" style="padding-top:30px;">
     	<h3>저공해차 구매보조금 관련 문의처</h3>
     	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_A.jsp'" value="전기승용"/>
     	<input type="button" class="btn btn-outline-info" onclick="location.href='index.jsp?contentPage=SubMain.jsp?listPage=Info/Info_list_B.jsp'" value="전기화물"/>

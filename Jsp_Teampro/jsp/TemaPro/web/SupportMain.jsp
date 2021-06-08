@@ -14,7 +14,7 @@
 		font-size : 28px;
 	}
 	#area{
-		padding-top : 200px;
+		padding-top : 150px;
 	}
 </style>
 </head>
