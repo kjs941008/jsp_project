@@ -17,7 +17,7 @@
 	<!-- 다만 글 작성은 관리자(rid = 0)만 가능, 일반회원(rid = 1)은 불가능 -->
 	<%
 		// 100 = 공지사항
-		final String board_name = "notice_";
+		final String board_name = "notice";
 		final int BID = 100;
 		int pg;
 		if (request.getParameter("pg") != null)
@@ -53,7 +53,7 @@
 				%>
 				<tbody>
 					<tr id="<%=b.getArticle_idx()%>"
-						onclick="<%=board_name%>readArticle(<%=b.getArticle_idx()%>)">
+						onclick="readArticle(<%=board_name%>, <%=b.getArticle_idx()%>)">
 						<th scope="row"><%=b.getArticle_idx()%></th>
 						<td><%=b.getTitle()%></td>
 						<td><%=b.getUname()%></td>
@@ -86,7 +86,7 @@
 					// TODO 페이지네이션(pre, next)
 				%>
 				<a
-					href="index.jsp?contentPage=Board/<%=board_name%>main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+					href="index.jsp?contentPage=Board/<%=board_name%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
 				<%
 					}
 				}
@@ -98,7 +98,7 @@
 				if (user.getRid() == 0) {
 		%>
 		<div id="submit" class="">
-			<a href="index.jsp?contentPage=Board/<%=board_name%>write.jsp"><input
+			<a href="index.jsp?contentPage=Board/<%=board_name%>_write.jsp"><input
 				type="button" class="btn btn-primary" value="글쓰기"></a>
 		</div>
 		<%
