@@ -31,6 +31,9 @@ if((MemberInfo)session.getAttribute("userinfo") != null){
    		$('#board_notice').on('click',function(){
    			location.href='index.jsp?contentPage=Board/notice_main.jsp';
    		})
+   		$('#freeboard').on('click',function(){
+   			location.href='index.jsp?contentPage=Board/fb_main.jsp';
+   		})
    	})
    </script>    
 </head>
@@ -65,6 +68,7 @@ if((MemberInfo)session.getAttribute("userinfo") != null){
 	                        <li><a class="dropdown-item" href="#!">충전소 건의</a></li>                                
 	                        <li><a class="dropdown-item" href="#!">전기차 실사용기</a></li>
 	                        <li id="board_notice"><a class="dropdown-item" href="#">공지사항</a></li>
+	                        <li id="freeboard"><a class="dropdown-item" href="#">자유게시판</a></li>
 	                    </ul>
 	                </li>
 	            </ul>

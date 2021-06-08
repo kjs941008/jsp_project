@@ -29,6 +29,8 @@ public class DML_Board {
 	private List<Board> list = null;
 	private Timestamp ts = null;
 	private SimpleDateFormat sdf = null;
+	private List<Reply> rp_list = null;
+	private Reply rp = null;
 
 	/**
 	 * 게시글 작성.
@@ -164,7 +166,6 @@ public class DML_Board {
 		title_content
 	}
 
-	// TODO 게시글 검색 두 번째. 회원 정보(회원번호, 아이디, 이름)로 검색. Member관리에서 만들까?
 	/**
 	 * 게시글 검색 첫 번째. 제목과 내용을 검색
 	 * 
@@ -175,7 +176,8 @@ public class DML_Board {
 	public ArrayList<Board> select_article1(SEL_OPT opt, String param, int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC) sub");
+		sb.append(
+				"SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC) sub");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -237,10 +239,11 @@ public class DML_Board {
 	 * @param maxRow 한 페이지 행 수
 	 * @return
 	 */
-	public ArrayList<Board> select_all(int page, int maxRow) {
+	public ArrayList<Board> select_all(int bid, int page, int maxRow) {
 		list = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC");
+		sb.append(
+				"SELECT bl.*, ml.uname FROM (SELECT * FROM board_list WHERE bid = ?) bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -252,6 +255,7 @@ public class DML_Board {
 			sql = sb.toString();
 //			System.out.println(">> query = " + sql);
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				article = new Board();
@@ -288,11 +292,11 @@ public class DML_Board {
 	 * @param maxRow 한 페이지 최대 행 수
 	 * @return > 0 페이지 반환 || == -1 글 없음
 	 */
-	public int select_pageCount(int maxRow) {
+	public int select_pageCount(int bid, int maxRow) {
 		int result = -1;
 		int count = 0;
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT COUNT(*) CNT FROM board_list");
+		sb.append("SELECT COUNT(*) CNT FROM (SELECT * FROM board_list WHERE bid = ?) sub");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -300,6 +304,7 @@ public class DML_Board {
 			sql = sb.toString();
 //			System.out.println(">> query = " + sql);
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				count = rs.getInt("CNT");
@@ -326,10 +331,10 @@ public class DML_Board {
 		return result;
 	}
 
-
 	public Board getArticle(int article_idx) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC) sub WHERE sub.article_idx = ?");
+		sb.append(
+				"SELECT * FROM (SELECT bl.*, ml.uname FROM board_list bl JOIN member_list ml WHERE bl.mid = ml.mid ORDER BY article_idx DESC) sub WHERE sub.article_idx = ?");
 		String sql = "";
 		try {
 			if (conn == null)
@@ -406,5 +411,52 @@ public class DML_Board {
 			}
 		}
 		return result;
+	}
+
+	/**
+	 * 해당 글의 댓글 불러오기
+	 * 
+	 * @param article_idx 글 번호
+	 * @return
+	 */
+	public ArrayList<Reply> show_rp(int article_idx) {
+		rp_list = new ArrayList<>();
+		StringBuilder sb = new StringBuilder();
+		sb.append("SELECT * FROM board_reply WHERE article_idx = ");
+		sb.append(article_idx);
+		sb.append(" ORDER BY rp_idx DESC");
+		String sql = "";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			sql = sb.toString();
+//			System.out.println(">> query = " + sql);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				rp = new Reply();
+				rp.setRp_idx(rs.getInt("rp_idx"));
+				rp.setArticle_idx(article_idx);
+				rp.setMid(rs.getInt("mid"));
+				rp.setRp_level(rs.getInt("rp_level"));
+				rp.setRp_context(rs.getString("rp_context"));
+				rp.setReg_date(rs.getTimestamp("reg_date"));
+				rp_list.add(rp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		return (ArrayList<Reply>) rp_list;
 	}
 }

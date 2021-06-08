@@ -13,7 +13,7 @@
 <%
 	// TODO 게시판 별 바뀌어야 할 정보
 	// 100 = 공지사항, 200 = 자유게시판
-	int BID = 100;
+	int BID = 200;
 	
 	DML_BoardInfo info = new DML_BoardInfo();
 	Board_Info this_board = null;
@@ -99,14 +99,12 @@
 		<%
 			MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
 		if (user != null) {
-			if (user.getRid() == 0) {
 		%>
 		<div id="submit" class="">
 			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>"><input
 				type="button" class="btn btn-primary" value="글쓰기"></a>
 		</div>
 		<%
-			}
 		}
 		%>
 	</div>

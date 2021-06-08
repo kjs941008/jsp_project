@@ -78,7 +78,6 @@ public class DML_Member {
 		return result;
 	}
 
-	// TODO 회원 정보 수정
 	public int update_member(int mid) {
 		int result = -1;
 		StringBuilder sb = new StringBuilder();

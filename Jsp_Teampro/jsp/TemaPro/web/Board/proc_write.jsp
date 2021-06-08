@@ -4,6 +4,8 @@
 <%@ page import="board.DML_Board"%>
 <%@ page import="Member.MemberInfo"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="board.Board_Info"%>
+<%@ page import="board.DML_BoardInfo"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	PrintWriter script = response.getWriter();
@@ -12,6 +14,12 @@
 	int mid = Integer.parseInt(midStr);
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
+	
+	DML_BoardInfo info = new DML_BoardInfo();
+	Board_Info this_board = null;
+	this_board = info.get_board_info(bid);
+	String bcode = this_board.getBcode();
+	
 	// Board article;
 	// article = new Board(bid, mid, title, content);
 	DML_Board dml = new DML_Board();
@@ -30,6 +38,6 @@
 		// 에러
 		script.println("alert('에러.')");
 	}
-	script.println("location.href = '../index.jsp?contentPage=Board/notice_main.jsp'");
+	script.println("location.href = '../index.jsp?contentPage=Board/"+bcode+"_main.jsp'");
 	script.println("</script>");
 %>

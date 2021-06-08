@@ -159,4 +159,36 @@ public class DML_BoardInfo {
 		}
 		return (ArrayList<Board_Info>) list;
 	}
+	
+	public Board_Info get_board_info(int bid) {
+		String sql = "SELECT * FROM board_info WHERE bid = ?";
+		try {
+			if (conn == null)
+				conn = DBConnect.getInstance();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				info = new Board_Info();
+				info.setBid(bid);
+				info.setBname(rs.getString("bname"));
+				info.setBcode(rs.getString("bcode"));
+				info.setBname_kor(rs.getString("bname_kor"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs = null;
+				if (pstmt != null)
+					pstmt = null;
+				if (conn != null)
+					conn = null;
+			} catch (Exception ef) {
+				ef.printStackTrace();
+			}
+		}
+		return info;
+	}
 }

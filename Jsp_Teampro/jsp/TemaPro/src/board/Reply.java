@@ -10,18 +10,6 @@ import java.sql.Timestamp;
  *
  */
 public class Reply {
-	/*
-	 * create table board_reply(
-	 * rp_idx int primary key auto_increment,
-	 * article_idx int,
-	 * mid int,
-	 * rp_level int not null default(0),
-	 * rp_context varchar(200),
-	 * reg_date timestamp
-	 * constraint 'FK_article_idx' article_idx references by board_list(article_idx),
-	 * constraint 'FK_mid' mid references by member_list(mid),
-	 * );
-	 */
 	private int rp_idx;
 	private int article_idx;
 	private int mid;
