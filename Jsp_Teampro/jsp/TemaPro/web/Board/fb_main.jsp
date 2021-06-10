@@ -87,7 +87,7 @@
 			</table>
 		</div>
 
-		<div id="pagination" class="pagination">
+		<div id="pagination" class="pagination" style="text-align: center;">
 			<%
 				/* 조건 */
 			if (pagination > 0) {
@@ -96,8 +96,9 @@
 			<%
 				// TODO 페이지네이션(pre, next)?
 			%>
-			<a
-				href="index.jsp?contentPage=Board/<%=bcode%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+			<div class="container" style="text-align: center;">
+				<a class="btn btn-info" href="index.jsp?contentPage=Board/<%=bcode%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+			</div>
 			<%
 				}
 			}

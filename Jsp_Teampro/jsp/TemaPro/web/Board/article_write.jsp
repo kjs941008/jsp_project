@@ -41,6 +41,12 @@
 	<div class="container" style="padding-top:50px;">
 		<!-- writer | title | content | timestamp(reg) -->
 		<form name="form" id="form" role="form" method="post" action="Board/proc_write.jsp">
+			<div class="mb-3" style="display: none;">
+				<label for="bid">게시판 id</label> <input type="number"
+					class="form-control" name="bid" id="bid" value="<%=BID%>"> <label
+					for="mid">게시자 id</label> <input type="number" class="form-control"
+					name="mid" id="mid" value="<%=user.getMid()%>">
+			</div>
 			<div class="left">
 				<label for="title" style="margin-top:3px; margin-bottom:70px;">제목</label><br>
 				<label for="content">내용</label>
