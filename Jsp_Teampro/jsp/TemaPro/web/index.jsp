@@ -45,8 +45,11 @@
  	        } 
  	        #footer {
  	            width: 100%; 
- 	            height: 60px;
- 	            margin-top:100px;
+ 	            height: 30px;
+   				position:absolute;
+   				bottom:0;
+  				text-align: center;
+  				color: white;
  	        }
         </style>
     </head>

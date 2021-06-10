@@ -15,6 +15,11 @@ function passwardCheck(){
 }
 function idcheck(){
     var userid = $('#userid').val();
+    var blank_pattern = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
+    if( blank_pattern.test( userid) == true){
+        alert(' 한글은 사용할 수 없습니다. ');
+        return false;
+    }
     
     if( userid == '' || userid == null ){
         alert( '값을 입력해주세요' );
@@ -76,7 +81,7 @@ function idcheck(){
  	    clear: both;
 	}
 </style>
-<form class="col-5 container" style="margin-top:100px; margin-bottom:130px;" action="./Member/SignUpAction.jsp" method="get" id="sign">
+<form class="col-5 container" action="./Member/SignUpAction.jsp" method="get" id="sign">
 	<div class="main mt-5 mb-4">
 		<h2>회원가입</h2>
 	</div>

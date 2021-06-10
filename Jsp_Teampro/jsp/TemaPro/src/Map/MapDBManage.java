@@ -26,7 +26,7 @@ public class MapDBManage {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				MapInfo map = new MapInfo();
-				map.setAdd(rs.getString("addr"));
+				map.setAddr(rs.getString("addr"));
 				list.add(map.getAddr());
 			}
 		}catch (Exception e) {
@@ -44,7 +44,7 @@ public class MapDBManage {
 		return list;
 	}
 	public ArrayList SearchMap(String addr) {
-		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<MapInfo> list = new ArrayList<MapInfo>();
 		Connection conn =  null;	// DB ���ᰴü
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -54,14 +54,16 @@ public class MapDBManage {
 			
 			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
 			pstmt = conn.prepareStatement(""
-							+ "SELECT addr FROM charge.charge_spot where addr like \"%" + addr + "%\""
+							+ "SELECT addr, spot, type FROM charge.charge_spot where addr like \"%" + addr + "%\""
 							+ "");
 			//pstmt.setString(1,addr);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				MapInfo map = new MapInfo();
-				map.setAdd(rs.getString("addr"));
-				list.add(map.getAddr());
+				map.setAddr(rs.getString("addr"));
+				map.setType(rs.getString("type"));
+				map.setSpot(rs.getString("spot"));
+				list.add(map);
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
