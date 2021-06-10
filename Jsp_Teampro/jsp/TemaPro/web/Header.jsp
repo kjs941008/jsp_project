@@ -58,15 +58,11 @@ if((MemberInfo)session.getAttribute("userinfo") != null){
 	                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 	                        <li><a class="dropdown-item" href="?contentPage=SupportMain.jsp">보조금 조회</a></li>
 	                        <li><a class="dropdown-item" href="?contentPage=SubMain.jsp">문의처 조회</a></li>
-	                        <li><hr class="dropdown-divider" /></li>
-	                        <li><a class="dropdown-item" href="#!">보조금 관련 문의</a></li>
 	                    </ul>
 	                </li>
 	                <li class="nav-item dropdown ms-lg-2">
 	                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
 	                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-	                        <li><a class="dropdown-item" href="#!">충전소 건의</a></li>                                
-	                        <li><a class="dropdown-item" href="#!">전기차 실사용기</a></li>
 	                        <li id="board_notice"><a class="dropdown-item" href="#">공지사항</a></li>
 	                        <li id="freeboard"><a class="dropdown-item" href="#">자유게시판</a></li>
 	                    </ul>

@@ -72,8 +72,8 @@ function idcheck(){
 	}
 	.last{
 		text-align:center;
-		width:100%;
-		float: bottom;
+		width:100%;	
+ 	    clear: both;
 	}
 </style>
 <form class="col-5 container" action="./Member/SignUpAction.jsp" method="get" id="sign">

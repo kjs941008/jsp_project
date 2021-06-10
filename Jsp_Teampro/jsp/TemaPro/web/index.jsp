@@ -37,15 +37,17 @@
  	        }	         
  	        #main {
  	            width: 100%;
+ 	            height:100%;
  	            text-align:center;  
   	            vertical-align: bottom;
   	            position :relative;
+  	            margin-bottom:150px;
  	        } 
  	        #footer {
- 	        	bottom:0; left:0; right:0;
+/*  	        	bottom:0; left:0; right:0; */
  	            width: 100%; 
  	            height: 60px; 
- 	            position : absolute;
+/*  	            position : absolute; */
  	        }
         </style>
     </head>
@@ -57,17 +59,13 @@
     	<div id="main">
             <jsp:include page="<%=contentPage%>"/>
     	</div>
-    	<div id="footer">
-	        <footer class="py-5 bg-dark">
-	            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
-	        </footer>
-	        
-	        
+        <div class="py-5 bg-dark" id="footer">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-     	</div>
      </div>
     </body>
 </html>

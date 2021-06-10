@@ -1,3 +1,5 @@
+import scaleSequential from "https://d3js.org/d3.v6.min.js";
+
 window.onload = function() {
     drawMap('#container');    
 };
@@ -11,8 +13,6 @@ function drawMap(target) {
     var labels;
 //    var colorScale=d3.scaleSequential(d3.interpolateTurbo).domain([0,d3.max(d.properties.car)])
     
-    
-
     var projection = d3.geo.mercator()
         .scale(initialScale)
         .translate([initialX, initialY]);
