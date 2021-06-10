@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="container my-3 text-center">
-		<h3>시도별 차량 보조금 현황</h3>
+		<h3 style="marbin-bottom:0;">시도별 차량 보조금 현황</h3>
 		<button type="button" class="btn btn-outline-secondary btn-sm my-xl-3" style="float:right" onclick="history.back()">뒤로가기</button>		
 		<table class="table table-bordered">
 			<tr>

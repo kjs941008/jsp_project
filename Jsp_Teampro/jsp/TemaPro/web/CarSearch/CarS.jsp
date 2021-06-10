@@ -18,8 +18,8 @@
 	<%
 	String contentPage;
 	%>
-	<h3>차종별 차량 보조금 현황</h3>
-	<div class="container my-3 text-center">
+	<div class="container mt-3 text-center">
+		<h3>차종별 차량 보조금 현황</h3>
 		<div id="test" style="display: none;"><%=selected%></div>
 		<form>
 			<input name="contentPage" id="contentPage" value="CarSearch/CarS.jsp" style="display: none;">
@@ -34,8 +34,7 @@
 					<option ${(param.f == "hydro bike")? "selected" : "" } id="수소">수소 승용</option>
 					<option ${(param.f == "micro Excavator")? "selected" : "" }	id="굴착기">전기 굴착기</option>
 				</select>
-				<!-- <a href="index.jsp?contentPage=CarSearch/CarS.jsp&f=">검색</a> -->
-				<button type="submit" value="검색" id="ok">검색</button>
+				<button class="btn btn-outline-info" style="padding:0 6px 0 6px;"type="submit" value="검색" id="ok">검색</button>
 			</fieldset>
 		</form>
 	</div>
@@ -48,7 +47,7 @@
 			// 		    $("#tutor_graduateStatus").val(tg).prop("selected",true);			
 		})
 	</script>
-	<div class="container my-3 text-center">
+	<div class="container mb-3 text-center">
 		<table class="table table-bordered my-3">
 		<button type="button" class="btn btn-outline-secondary btn-sm my-xl-1" 
 		style="float:right" onclick="history.back()">뒤로가기</button>

@@ -49,10 +49,10 @@
 			<table class="table table-hover" style="text-align:center;">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">제목</th>
-						<th scope="col">글쓴이</th>
-						<th scope="col">작성일</th>
+						<th width="10%" scope="col">번호</th>
+						<th width="*" scope="col">제목</th>
+						<th width="10%" scope="col">글쓴이</th>
+						<th width="20%" scope="col">작성일</th>
 					</tr>
 				</thead>
 				<%

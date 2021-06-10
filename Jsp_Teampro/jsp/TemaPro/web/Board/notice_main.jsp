@@ -42,13 +42,26 @@
 	<div class="container" style="margin-top:20px;">
 	<h4>[공지사항]</h4>
 		<div id="board_table" class="">
+		<%
+			MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
+		if (user != null) {
+			if (user.getRid() == 0) {
+		%>
+		<div id="submit" class="" style="text-align:right; padding-bottom:10px;">
+			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>"><input
+				type="button" class="btn btn-info" value="글쓰기"></a>
+		</div>
+		<%
+			}
+		}
+		%>
 			<table class="table table-hover" style="text-align:center;">
 				<thead class="thead-light">
 					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">제목</th>
-						<th scope="col">글쓴이</th>
-						<th scope="col">작성일</th>
+						<th width="10%" scope="col">번호</th>
+						<th width="*" scope="col">제목</th>
+						<th width="10%" scope="col">글쓴이</th>
+						<th width="20%" scope="col">작성일</th>
 					</tr>
 				</thead>
 				<%
@@ -98,19 +111,6 @@
 			}
 			%>
 		</div>
-		<%
-			MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
-		if (user != null) {
-			if (user.getRid() == 0) {
-		%>
-		<div id="submit" class="" style="text-align:right; padding-top:10px;">
-			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>"><input
-				type="button" class="btn btn-info" value="글쓰기"></a>
-		</div>
-		<%
-			}
-		}
-		%>
 	</div>
 </body>
 </html>
