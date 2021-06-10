@@ -41,11 +41,18 @@
 	<!-- article_id | title | writer | timestamp(reg) -->
 	<div class="container" style="margin-top:20px;">
 	<h4>[자유게시판]</h4>
-		<div id="board_table" class="">
+		<div id="board_table" class="">		
+		<%
+			MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
+		if (user != null) {
+		%>
 		<div id="submit" class="" style="text-align:right; padding-bottom:10px;">
-			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>"><input
-				type="button" class="btn btn-info" value="글쓰기"></a>
+			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>">
+			<input type="button" class="btn btn-info" value="글쓰기"></a>
 		</div>
+		<%
+		     } 
+		%>		
 			<table class="table table-hover" style="text-align:center;">
 				<thead class="thead-light">
 					<tr>
@@ -97,18 +104,13 @@
 				// TODO 페이지네이션(pre, next)?
 			%>
 			<div class="container" style="text-align: center;">
-				<a class="btn btn-info" href="index.jsp?contentPage=Board/<%=bcode%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+				<a class="btn btn-outline-info" href="index.jsp?contentPage=Board/<%=bcode%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
 			</div>
 			<%
 				}
 			}
 			%>
 		</div>
-		<%
-			MemberInfo user = (MemberInfo) session.getAttribute("userinfo");
-		if (user != null) {
-		}
-		%>
 	</div>
 </body>
 </html>

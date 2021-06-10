@@ -48,8 +48,8 @@
 			if (user.getRid() == 0) {
 		%>
 		<div id="submit" class="" style="text-align:right; padding-bottom:10px;">
-			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>"><input
-				type="button" class="btn btn-info" value="글쓰기"></a>
+			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>">
+			<input type="button" class="btn btn-info" value="글쓰기"></a>
 		</div>
 		<%
 			}
@@ -104,8 +104,9 @@
 			<%
 				// TODO 페이지네이션(pre, next)?
 			%>
-			<a
-				href="index.jsp?contentPage=Board/<%=bcode%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+			<div class="container" style="text-align: center;">
+				<a class="btn btn-outline-info" href="index.jsp?contentPage=Board/<%=bcode%>_main.jsp?pg=<%=(i + 1)%>"><%=(i + 1)%></a>
+			</div>
 			<%
 				}
 			}
