@@ -32,14 +32,17 @@
 	int pagination = dml.select_pageCount(BID, ROW_CNT);
 	ArrayList<Board> list = null;
 %>
+<link href="CSS/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <title><%=board_name_kor%></title>
 </head>
 <script src="js/board.js"></script>
 <body>
 	<!-- article_id | title | writer | timestamp(reg) -->
-	<div id="container" class="">
+	<div class="container" style="margin-top:20px;">
+	<h4>[공지사항]</h4>
 		<div id="board_table" class="">
-			<table class="table table-striped">
+			<table class="table table-hover" style="text-align:center;">
 				<thead class="thead-light">
 					<tr>
 						<th scope="col">번호</th>
@@ -79,8 +82,7 @@
 				%>
 			</table>
 		</div>
-
-		<div id="pagination" class="">
+		<div id="pagination" class="pagination">
 			<%
 				/* 조건 */
 			if (pagination > 0) {
@@ -101,9 +103,9 @@
 		if (user != null) {
 			if (user.getRid() == 0) {
 		%>
-		<div id="submit" class="">
+		<div id="submit" class="" style="text-align:right; padding-top:10px;">
 			<a href="index.jsp?contentPage=Board/article_write.jsp?bid=<%=BID%>"><input
-				type="button" class="btn btn-primary" value="글쓰기"></a>
+				type="button" class="btn btn-info" value="글쓰기"></a>
 		</div>
 		<%
 			}

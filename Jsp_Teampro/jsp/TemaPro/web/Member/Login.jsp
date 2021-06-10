@@ -11,7 +11,7 @@ function Find_pw(){
 }
 </script>
 <form action="./Member/LoginAction.jsp" method="get">
-	<div class="main my-5">
+	<div class="main" style="margin-top:100px; margin-bottom:300px;">
 	<h2 class="mt-sm-5">로그인</h2>
 		<div class="input-box my-3">
 			<label class="me-sm-4" for="id">ID&nbsp</label>

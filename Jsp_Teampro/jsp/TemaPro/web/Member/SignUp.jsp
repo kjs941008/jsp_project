@@ -76,7 +76,7 @@ function idcheck(){
  	    clear: both;
 	}
 </style>
-<form class="col-5 container" action="./Member/SignUpAction.jsp" method="get" id="sign">
+<form class="col-5 container" style="margin-top:100px; margin-bottom:130px;" action="./Member/SignUpAction.jsp" method="get" id="sign">
 	<div class="main mt-5 mb-4">
 		<h2>회원가입</h2>
 	</div>

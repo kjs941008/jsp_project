@@ -15,6 +15,7 @@
 	}
 	#area{
 		padding-top : 150px;
+		padding-bottom:200px;
 	}
 </style>
 </head>

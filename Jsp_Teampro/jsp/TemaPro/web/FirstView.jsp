@@ -6,12 +6,15 @@
 <meta charset="UTF-8">
 <title>첫 화면</title>
 <style>
-	body{
+	.first{
 		background-color:pink;
+		padding-bottom : 300px;
 	}
 </style>
 </head>
 <body>       
-첫 화면
+<div class="first">
+	첫 화면
+</div>
 </body>
 </html>

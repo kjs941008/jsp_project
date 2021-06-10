@@ -13,10 +13,10 @@
 </style>
 </head>
 <body>  
-     
-<h3 id="headline">↑↑보유하신 차종을 클릭하세요↑↑</h3>
-<br>
-<h5>한국환경공단 : 통합안내데스크 (1661-0970)</h4>
-
+ <div id="integrated" style="padding-bottom:250px;">    
+	<h3 id="headline">↑↑보유하신 차종을 클릭하세요↑↑</h3>
+	<br>
+	<h5>한국환경공단 : 통합안내데스크 (1661-0970)</h5>
+ </div>
 </body>
 </html>

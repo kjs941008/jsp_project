@@ -41,13 +41,11 @@
  	            text-align:center;  
   	            vertical-align: bottom;
   	            position :relative;
-  	            margin-bottom:150px;
  	        } 
  	        #footer {
-/*  	        	bottom:0; left:0; right:0; */
  	            width: 100%; 
- 	            height: 60px; 
-/*  	            position : absolute; */
+ 	            height: 60px;
+ 	            margin-top:100px;
  	        }
         </style>
     </head>
