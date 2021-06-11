@@ -52,7 +52,7 @@ if((MemberInfo)session.getAttribute("userinfo") != null){
             <div class="container px-4 px-lg-5">
 	            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
 	                <li class="nav-item ms-lg-2"><a class="nav-link active" aria-current="page" href="index.jsp">Home</a></li>
-	                <li class="nav-item ms-lg-2"><a class="nav-link" href="#!">충전소 검색</a></li>
+	                <li class="nav-item ms-lg-2"><a class="nav-link" href="?contentPage=Map/Search_Map.jsp">충전소 검색</a></li>
 	                <li class="nav-item dropdown ms-lg-2">
 	                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">보조금</a>
 	                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

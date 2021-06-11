@@ -47,8 +47,8 @@ public class MemberDBManage {
 		
 		
 	}
-	public boolean SignUp(String userid,String upasswd,String uname,String umail,
-			String uaddr,String regdate) {
+	public boolean SignUp(String userid,String upasswd,String uname,String uaddr,
+			String umail,String regdate) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		boolean result = false;

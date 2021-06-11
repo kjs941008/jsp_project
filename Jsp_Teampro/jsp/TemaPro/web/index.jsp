@@ -44,6 +44,7 @@
   	            position :relative;
  	        } 
  	        #footer {
+ 	        
  	            width: 100%; 
  	            height: 30px;
    				position:absolute;
