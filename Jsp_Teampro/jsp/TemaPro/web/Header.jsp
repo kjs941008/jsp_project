@@ -71,12 +71,12 @@ if((MemberInfo)session.getAttribute("userinfo") != null){
                 <%if(id == null){ %>
                 <form class="d-flex">
                     <button id="login" class="btn btn-outline-dark" type="button">
-                        LOGIN
+                        	로그인
                     </button>
                 </form>
                 <form class="d-flex">
                     <button id="signup" class="btn btn-outline-dark ms-lg-2" type="button">
-                        SIGN UP
+                        	회원가입
                     </button>
                 </form>
                 <%}else { %>
