@@ -54,7 +54,7 @@
  	        }
         </style>
     </head>
-    <body>
+    <body> 
     <div id="wrap">
     	<div id="header">
    			<jsp:include page="Header.jsp" />

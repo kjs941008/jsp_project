@@ -7,7 +7,5 @@
 	script.println("<script>");
 	script.println("location.href = './index.jsp'");
 	script.println("</script>");
-	// 세션 정보 삭제
-	script.close();
-	
+	// 세션 정보 삭제	
 %>

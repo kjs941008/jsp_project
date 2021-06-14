@@ -1,10 +1,11 @@
+<%@page import="Member.MemberInfo"%>
 <%@page import="java.io.PrintWriter"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="Member.MemberDBManage"%>
 <%
-	Object id = session.getAttribute("id");
-	String userid = String.valueOf(id);
+	MemberInfo userinfo  = (MemberInfo)session.getAttribute("userinfo");
+	String userid = userinfo.getUserid();
 	String nowpw = request.getParameter("nowpw");
 	String wpw = request.getParameter("upasswd");
 	
@@ -15,7 +16,7 @@
 
 		script.println("<script>");
 		script.println("alert('성공')");
-		script.println("window.close()");
+		script.println("location.href = '../index.jsp'");
 		script.println("</script>");
 		
 	}else{

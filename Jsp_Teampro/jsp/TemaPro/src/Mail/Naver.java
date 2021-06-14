@@ -14,7 +14,7 @@ public class Naver {
 	
 	public static void FindIDMail(String mail, String userid) {
 		String host = "smtp.naver.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
-		String user = "kjs941008@naver.com"; // 패스워드 
+		String user = "umgo3245@naver.com"; // 패스워드 
 		String password = "asdf1234!"; 
 		
 		
@@ -42,9 +42,9 @@ public class Naver {
 			} catch (MessagingException e) { 
 				e.printStackTrace(); }
 		}
-	public static void FindPWMail() {
+	public static void FindPWMail(String mail, String pw) {
 		String host = "smtp.naver.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
-		String user = "kjs941008@naver.com"; // 패스워드 
+		String user = "umgo3245@naver.com"; // 패스워드 
 		String password = "asdf1234!"; 
 		
 		
@@ -61,12 +61,12 @@ public class Naver {
 		try { 
 			MimeMessage message = new MimeMessage(session); 
 			message.setFrom(new InternetAddress(user));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress("kjs941008@naver.com")); 
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(mail)); 
 			
 			// 메일 제목 
-			message.setSubject("아이디찾기"); 
+			message.setSubject("비밀번호찾기"); 
 			// 메일 내용 
-			message.setText("니 아이디는 "); // send the message 
+			message.setText("니 비밀번호는 "+pw); // send the message 
 			Transport.send(message); 
 			System.out.println("Success Message Send"); 
 			} catch (MessagingException e) { 

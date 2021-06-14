@@ -7,13 +7,15 @@
 <!DOCTYPE html>
 <%
 
+String userid = (String)request.getParameter("userid");
 String uname = (String)request.getParameter("uname");
 String umail = (String)request.getParameter("umail");
 
 PrintWriter script = response.getWriter();
 MemberDBManage mdb = new MemberDBManage();
-MemberInfo mif = mdb.FindID(uname, umail);
-String userid = mif.getUserid();
+MemberInfo mif = mdb.FindPw(userid,uname,umail);
+String pw = mif.getUpasswd();
+System.out.println(pw);
 
 if(mif.getSuc() == 1){
 	Naver.FindIDMail(umail,userid);

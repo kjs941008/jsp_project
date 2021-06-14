@@ -4,10 +4,10 @@
 
 <script>
 function Find_id(){
-	window.open('Member/Find_Id.jsp',"_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400")
+	location.href='index.jsp?contentPage=Member/Find_Id.jsp';
 }
 function Find_pw(){
-	window.open('Member/Find_Pw.jsp',"_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400")
+	location.href='index.jsp?contentPage=Member/Find_Pw.jsp';
 }
 </script>
 <form action="./Member/LoginAction.jsp" method="get">

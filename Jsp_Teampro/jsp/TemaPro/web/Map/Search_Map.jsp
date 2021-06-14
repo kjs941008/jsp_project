@@ -38,8 +38,6 @@ function search(){
 }
 function addrsearch(addr2){
 	location.href='?contentPage=Map/Search_Map.jsp&&addr2='+addr2+'&&addr='+'<%=addr%>';
-	alert(addr2);
-
 }
 </script>
 <body>
@@ -88,10 +86,10 @@ function addrsearch(addr2){
                             map: map,
                             position: coords
                         });
-                        var iwContent = "<p style='font-size :5px'><%=Search_Addr.get(0).getSpot()%></p>",
+                        var iwContent = "<p style='font-size :10px'><%=Search_Addr.get(0).getSpot()%></p>",
                             iwRemoveable = true; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                        var iwContent2 = "<p style='font-size :5px'><%=Search_Addr.get(0).getAddr()%></p>"
-                        var iwContent3 = "<p style='font-size :5px'><%=Search_Addr.get(0).getType()%></p>"
+                        var iwContent2 = "<p style='font-size :10px'><%=Search_Addr.get(0).getAddr()%></p>"
+                        var iwContent3 = "<p style='font-size :10px'><%=Search_Addr.get(0).getType()%></p>"
                         // 인포윈도우를 생성합니다
                         var infowindow = new kakao.maps.InfoWindow({
                             content: iwContent + iwContent2 + iwContent3,

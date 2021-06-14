@@ -245,5 +245,44 @@ public class MemberDBManage {
 		member.setSuc(0);
 		return member;
 	}
+	public MemberInfo FindPw(String userid,String uname,String umail) {
+		
+		MemberInfo member = new MemberInfo();
+		member.setSuc(0);
+		Connection conn =  null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			Class.forName(DBInfo.mysql_class);
+			
+			conn = DriverManager.getConnection(DBInfo.mysql_url, DBInfo.mysql_id, DBInfo.mysql_pw);
+			pstmt = conn.prepareStatement(""
+							+ "SELECT upasswd FROM charge.member_list " 
+							+ "WHERE userid = ? and uname = ? and umail = ? "
+							+ "");
+
+			pstmt.setString(1, userid);
+			pstmt.setString(2, uname);
+			pstmt.setString(3, umail);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+					//�엯�젰�븳 �젙蹂닿� 留욎쑝硫� ID由ы꽩
+					member.setUpasswd(rs.getString("upasswd"));
+					member.setSuc(1);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception ex){
+				
+			}
+		}
+		return member;
+	}
 
 }
