@@ -11,13 +11,10 @@
 	boolean check = false;
 	if(addr2!=null){
 		check = true;
-	}
-	
-	
+	}	
 	if (addr == null){
-		addr = "서울특별시 중구 세종대로 110 (태평로1가";
-	}
-	
+		addr = "서울특별시 중구 세종대로 110 (태평로1가)";
+	}	
 	MapDBManage map = new MapDBManage();
 	ArrayList<MapInfo> list = map.SearchMap(addr);
 %>
@@ -25,10 +22,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link href="CSS/styles.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <meta charset="utf-8">
     <title>주소로 장소 표시하기</title>
+<style>
+	.search{
+		width:25%;
+		height:675px;
+		float:left;
+		overflow:scroll;
+		text-align:center;
+	}
+	#map{
+		width:75%;
+		height:675px;
+		float:right;
+	}
+	#addr2{
+		font-size : 13px;
+	}
+</style>
 </head>
  <script>
 function search(){
@@ -41,23 +57,23 @@ function addrsearch(addr2){
 }
 </script>
 <body>
-    <div style="width:25%;height:675px;float:left;background-color: #bbb;overflow:scroll">
+    <div class="search">
         <input class="col-8 mb-sm-2" type="text" name="addr" id="addr" class="form-control" placeholder="검색" />
-		<button type='button' class="btn btn-outline-info btn-sm" onclick='search()'>주소 검색</button>
+		<button type='button' class="btn btn-outline-info btn-sm" onclick='search()'>주소 검색</button><br>
 				<%for(int i = 0;i < list.size();i++){%>	
  				<%if(i >0 && list.get(i).getAddr().equals(list.get(i-1).getAddr()))
 					continue;
 				%>
-					<div><%=list.get(i).getSpot()%></div>
+					<span style="font-size:20px; color:#0000CD; font-weight:bold;"><%=list.get(i).getSpot()%></span>
+					<button class="btn btn-info btn-sm" onclick ="addrsearch('<%=list.get(i).getAddr()%>')">이동</button>
 					<div id="addr2"><%=list.get(i).getAddr()%></div>
-					<div><%=list.get(i).getType()%></div>
-					<button onclick ="addrsearch('<%=list.get(i).getAddr()%>')">검색</button>
-					<br>
+					<div id="addr2"><%=list.get(i).getType()%></div>
+					<hr style="border:#767474 1px dashed">
+					
 				<%}
 				%>
-
     </div>
-    <div id="map" style="width:75%;height:675px;float:right;"></div>
+    <div id="map"></div>
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7f2742810f51fd185f367e60d19d4d07&libraries=services"></script>
     <script>
@@ -86,10 +102,10 @@ function addrsearch(addr2){
                             map: map,
                             position: coords
                         });
-                        var iwContent = "<p style='font-size :10px'><%=Search_Addr.get(0).getSpot()%></p>",
+                        var iwContent = "<p style='font-size :5px'><%=Search_Addr.get(0).getSpot()%></p>",
                             iwRemoveable = true; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-                        var iwContent2 = "<p style='font-size :10px'><%=Search_Addr.get(0).getAddr()%></p>"
-                        var iwContent3 = "<p style='font-size :10px'><%=Search_Addr.get(0).getType()%></p>"
+                        var iwContent2 = "<p style='font-size :5px'><%=Search_Addr.get(0).getAddr()%></p>"
+                        var iwContent3 = "<p style='font-size :5px'><%=Search_Addr.get(0).getType()%></p>"
                         // 인포윈도우를 생성합니다
                         var infowindow = new kakao.maps.InfoWindow({
                             content: iwContent + iwContent2 + iwContent3,
