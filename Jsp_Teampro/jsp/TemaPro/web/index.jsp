@@ -38,16 +38,15 @@
  	        #main {
  	            width: 100%;
  	            height:100%;
- 	            min-height:400px;
+ 	            min-height:700px;
  	            text-align:center;  
   	            vertical-align: bottom;
   	            position :relative;
+  	            padding-bottom:50px;
  	        } 
- 	        #footer {
- 	        
+ 	        #footer { 	        
  	            width: 100%; 
  	            height: 30px;
-   				position:absolute;
    				bottom:0;
   				text-align: center;
   				color: white;
