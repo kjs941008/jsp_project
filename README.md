@@ -7,7 +7,7 @@
 ![img](jsp_main.png)
 
 ## 소개
--Python
+- Python
     -공공데이터에서 가져온 전기차 충전소 위치 데이터를 DB에 저장
 - JSP
     - 메인 인덱스에 include를 사용하여 웹페이지 구현
