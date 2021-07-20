@@ -4,7 +4,7 @@
 - Python은 Pycharm을 사용한 환경에서 진행하였습니다.
 - DataBase는 MySQL를 사용한 환경에서 진행하였습니다.
 
-![img](JAVA_Swing.png)
+![img](jsp_main.png)
 
 ## 소개
 -Python
